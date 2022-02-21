@@ -14,6 +14,9 @@ public class EnemyMover : MonoBehaviour
     private Vector3 startPos;
 
 
+    private bool isProvoked = false;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,13 +30,32 @@ public class EnemyMover : MonoBehaviour
     {
         this.distanceToTargetSqr = (this.target.transform.position - this.gameObject.transform.position).sqrMagnitude;
 
-        if(this.distanceToTargetSqr <= (this.chaseRange*this.chaseRange))
+        if (this.isProvoked)
+        {
+            EngageTarget();
+            return;
+        }
+        else if(this.distanceToTargetSqr <= (this.chaseRange * this.chaseRange))
+        {
+            this.isProvoked = true;
+            this.navMeshAgent.SetDestination(this.target.position);
+        }
+        else if (!Vector3.Equals(this.distanceToTargetSqr, this.startPos))
+        {
+            this.isProvoked = false;
+            this.navMeshAgent.SetDestination(this.startPos);
+        }
+    }
+
+    private void EngageTarget()
+    {
+        if(this.distanceToTargetSqr > (this.navMeshAgent.stoppingDistance*this.navMeshAgent.stoppingDistance))
         {
             this.navMeshAgent.SetDestination(this.target.position);
         }
-        else if(!Vector3.Equals(this.distanceToTargetSqr, this.startPos))
+        else
         {
-            this.navMeshAgent.SetDestination(this.startPos);
+            Debug.Log("Attack!!! RAAAARGGHHHH!!!");
         }
     }
 

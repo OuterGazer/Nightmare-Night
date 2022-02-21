@@ -36,4 +36,10 @@ public class EnemyMover : MonoBehaviour
             this.navMeshAgent.SetDestination(this.startPos);
         }
     }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(this.gameObject.transform.position, this.chaseRange);
+    }
 }

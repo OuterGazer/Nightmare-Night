@@ -13,6 +13,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] int damage;
     [SerializeField] float range;
     [SerializeField] ParticleSystem muzzleFlash;
+    [SerializeField] GameObject bulletImpactSparks;
 
     private void Awake()
     {
@@ -45,11 +46,19 @@ public class Weapon : MonoBehaviour
 
         if (isHit)
         {
+            PlayHitParticle(hit);            
+
             EnemyHealth enemyHealth = hit.collider.GetComponent<EnemyHealth>();
             if (enemyHealth != null)
             {
                 enemyHealth.SubtractHealth(this.damage);
             }
         }
+    }
+
+    private void PlayHitParticle(RaycastHit hit)
+    {
+        // TODO: correct the spark angle so it always plays perpendicular to the surface hit
+        GameObject.Instantiate<GameObject>(this.bulletImpactSparks, hit.point, Quaternion.Euler(hit.normal));
     }
 }

@@ -8,6 +8,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] InputAction shoot;
     [SerializeField] Camera FPSCamera;
 
+    [SerializeField] int damage;
     [SerializeField] float range;
 
     private void Awake()
@@ -23,7 +24,7 @@ public class Weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (this.shoot.IsPressed())
+        if (this.shoot.triggered)
             Shoot();
     }
 
@@ -33,6 +34,12 @@ public class Weapon : MonoBehaviour
         bool isHit = Physics.Raycast(this.FPSCamera.transform.position, this.FPSCamera.transform.forward, out hit, this.range);
 
         if (isHit)
-            Debug.Log($"Hit {hit.collider.name}");
+        {
+            EnemyHealth enemyHealth = hit.collider.GetComponent<EnemyHealth>();
+            if(enemyHealth != null)
+            {
+                enemyHealth.SubtractHealth(this.damage);
+            }
+        }
     }
 }

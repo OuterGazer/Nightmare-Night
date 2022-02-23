@@ -2,26 +2,8 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
-/[Aa]ssets/**/
-!/[Aa]ssets/[Ss]cripts
-!/[Aa]ssets/[Ss]cenes
-#!/[Aa]ssets/[Tt]errains
-#!/[Aa]ssets/[Tt]imelines
-!/[Aa]ssets/[Ss]cripts/**/*.cs
-!/[Aa]ssets/[Ss]cripts/**/*.cs.meta
-!/[Aa]ssets/[Ss]cripts/[Ww]aves/
-
-#Both these lines aren't working and I don't know why
-#!/[Aa]ssets/[Ss]cripts/[Ww]aves/**/*.asset
-#!/[Aa]ssets/[Ss]cripts/[Ww]aves/**/*.asset.meta
-
-!/[Aa]ssets/[Ss]cenes/**/*.unity
-!/[Aa]ssets/[Ss]cenes/**/*.unity.meta
-#!/[Aa]ssets/[Tt]errains/**/*.asset
-#!/[Aa]ssets/[Tt]errains/**/*.asset.meta
-#!/[Aa]ssets/[Tt]imelines/**/*.playable
-#!/[Aa]ssets/[Tt]imelines/**/*.playable.meta
-
+/[Aa]ssets/Asset Packs/**/
+/[Aa]ssets/Asset Packs/**/*.meta
 
 /[Ll]ibrary/
 /[Tt]emp/

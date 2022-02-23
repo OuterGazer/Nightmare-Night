@@ -58,7 +58,6 @@ public class Weapon : MonoBehaviour
 
     private void PlayHitParticle(RaycastHit hit)
     {
-        // TODO: correct the spark angle so it always plays perpendicular to the surface hit
-        GameObject.Instantiate<GameObject>(this.bulletImpactSparks, hit.point, Quaternion.Euler(hit.normal));
+        GameObject.Instantiate<GameObject>(this.bulletImpactSparks, hit.point, Quaternion.LookRotation(hit.normal));
     }
 }

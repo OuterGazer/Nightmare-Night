@@ -52,6 +52,7 @@ public class Weapon : MonoBehaviour
             if (enemyHealth != null)
             {
                 enemyHealth.SubtractHealth(this.damage);
+                hit.collider.GetComponent<EnemyMover>().SetIsProvoked(true);
             }
         }
     }

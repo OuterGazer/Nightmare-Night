@@ -8362,7 +8362,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3491587145455371778, guid: e73df06f4310f41428e9638c5b725ffe, type: 3}
       propertyPath: m_StoppingDistance
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3491587145455371781, guid: e73df06f4310f41428e9638c5b725ffe, type: 3}
       propertyPath: m_Name
@@ -8416,31 +8416,8 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 308396573}
-    - target: {fileID: 3491587145455371791, guid: e73df06f4310f41428e9638c5b725ffe, type: 3}
-      propertyPath: chaseRange
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e73df06f4310f41428e9638c5b725ffe, type: 3}
---- !u!1 &3491587144110906791 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3491587145455371781, guid: e73df06f4310f41428e9638c5b725ffe, type: 3}
-  m_PrefabInstance: {fileID: 3491587144110906790}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3491587144110906792
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3491587144110906791}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81f6707848545734fa8d943a7d2c535a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHitPoints: 3
-  enemyDeathDelay: 1
 --- !u!1001 &5393215579111688471
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -9,10 +9,14 @@ public class PlayerHealth : MonoBehaviour
     private float curHitPoints;
 
     [SerializeField] GameObject gameOverCanvas;
+    [SerializeField] GameObject weapons;
 
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
         this.curHitPoints = this.maxHitPoints;
     }
 
@@ -30,6 +34,7 @@ public class PlayerHealth : MonoBehaviour
     private void ProcessDeath()
     {
         this.gameObject.GetComponent<PlayerInput>().enabled = false;
+        this.weapons.SetActive(false);
         GameObject.FindObjectOfType<EnemyMover>().enabled = false;
 
         this.gameOverCanvas.SetActive(true);

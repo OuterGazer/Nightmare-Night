@@ -7,6 +7,7 @@ public class EnemyMover : MonoBehaviour
 {
     [SerializeField] Transform target;
     [SerializeField] float chaseRange = 7.0f;
+    [SerializeField] float rotationSpeed = default;
 
 
     private Animator enemyAnim;
@@ -88,10 +89,23 @@ public class EnemyMover : MonoBehaviour
         }
         else
         {
+            FaceTarget();
+
             this.isMoving = false;
 
             this.enemyAnim.SetBool("isAttacking", true);
         }
+    }
+
+    private void FaceTarget()
+    {
+        Vector3 targetDirection = (this.target.position - this.gameObject.transform.position).normalized;
+
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(targetDirection.x, 0, targetDirection.z));
+
+        this.gameObject.transform.rotation = Quaternion.Slerp(this.gameObject.transform.rotation,
+                                                              lookRotation,
+                                                              this.rotationSpeed * Time.deltaTime);
     }
 
     private void OnDrawGizmosSelected()

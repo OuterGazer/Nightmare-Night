@@ -8354,6 +8354,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 3893294199639930361}
+    - target: {fileID: 3491587145455371791, guid: e73df06f4310f41428e9638c5b725ffe, type: 3}
+      propertyPath: rotationSpeed
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e73df06f4310f41428e9638c5b725ffe, type: 3}
 --- !u!4 &3893294199639930361 stripped

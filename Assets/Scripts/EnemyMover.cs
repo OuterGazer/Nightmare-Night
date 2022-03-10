@@ -91,7 +91,6 @@ public class EnemyMover : MonoBehaviour
             this.isMoving = false;
 
             this.enemyAnim.SetBool("isAttacking", true);
-            Debug.Log("Attack!!! RAAAARGGHHHH!!!");
         }
     }
 

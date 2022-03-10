@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
-    [SerializeField] Transform target;
     [SerializeField] float damage = default;
+
+
+    private PlayerHealth target;
+
+    private void Awake()
+    {
+        this.target = GameObject.FindObjectOfType<PlayerHealth>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +24,6 @@ public class EnemyAttack : MonoBehaviour
     {
         if (this.target == null) { return; }
 
-        Debug.Log("Bang! Bang!");
+        this.target.DealDamage(this.damage);
     }
 }

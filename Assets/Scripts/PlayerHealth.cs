@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] float maxHitPoints = default;
     private float curHitPoints;
+
+    [SerializeField] GameObject gameOverCanvas;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +29,11 @@ public class PlayerHealth : MonoBehaviour
 
     private void ProcessDeath()
     {
-        Debug.Log("Player is dead!");
+        this.gameObject.GetComponent<PlayerInput>().enabled = false;
+        GameObject.FindObjectOfType<EnemyMover>().enabled = false;
+
+        this.gameOverCanvas.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 }

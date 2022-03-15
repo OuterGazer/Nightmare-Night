@@ -7089,6 +7089,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1060650882}
     m_Modifications:
+    - target: {fileID: 158014117695216363, guid: e73df06f4310f41428e9638c5b725ffe, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3491587145455371781, guid: e73df06f4310f41428e9638c5b725ffe, type: 3}
       propertyPath: m_Name
       value: Enemy (1)

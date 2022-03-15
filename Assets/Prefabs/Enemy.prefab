@@ -116,7 +116,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 3
+  m_StoppingDistance: 4
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -137,7 +137,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  chaseRange: 10
+  chaseRange: 12
+  rotationSpeed: 5
 --- !u!114 &3491587144110906792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,8 +151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81f6707848545734fa8d943a7d2c535a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHitPoints: 3
-  enemyDeathDelay: 1
+  maxHitPoints: 5
+  enemyDeathDelay: 0
 --- !u!95 &158014117695216363
 Animator:
   serializedVersion: 3
@@ -183,7 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8df9bee4638ca24ca22a7443dee8d58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 40
+  damage: 25
 --- !u!1 &7578013158924042766
 GameObject:
   m_ObjectHideFlags: 0

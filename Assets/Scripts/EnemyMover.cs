@@ -14,7 +14,10 @@ public class EnemyMover : MonoBehaviour
     private NavMeshAgent navMeshAgent;
     private float distanceToTargetSqr = Mathf.Infinity;
     private Vector3 startPos;
+    private LayerMask defaultMask;
 
+    private bool isPlayerVisible = false;
+    private bool shouldEnemyEngage = false;
     private bool isMoving = false;
     private bool isProvoked = false;
     public void SetIsProvoked(bool isProvoked)
@@ -26,6 +29,8 @@ public class EnemyMover : MonoBehaviour
     {
         this.enemyAnim = this.gameObject.GetComponent<Animator>();
         this.navMeshAgent = this.gameObject.GetComponent<NavMeshAgent>();
+
+        this.defaultMask = LayerMask.GetMask("Default");
     }
 
     // Start is called before the first frame update
@@ -46,7 +51,10 @@ public class EnemyMover : MonoBehaviour
         }
         else if(this.distanceToTargetSqr <= (this.chaseRange * this.chaseRange))
         {
-            EngageTarget();
+            this.shouldEnemyEngage = true;
+
+            if(this.isPlayerVisible)
+                EngageTarget();
         }
         else if(!Mathf.Approximately(this.navMeshAgent.velocity.sqrMagnitude, 0))
         {
@@ -60,14 +68,24 @@ public class EnemyMover : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        if(this.shouldEnemyEngage)
+            this.isPlayerVisible = CheckIfPlayerIsVisible();
+    }
+
     private void DisengageFromTarget()
     {
+        this.shouldEnemyEngage = false;
+
         this.isMoving = false;
         this.enemyAnim.SetTrigger("idle");
     }
 
     private void ReturnToStartPos()
     {
+        this.shouldEnemyEngage = false;
+
         this.isMoving = true;
 
         this.enemyAnim.SetTrigger("move");
@@ -106,6 +124,26 @@ public class EnemyMover : MonoBehaviour
         this.gameObject.transform.rotation = Quaternion.Slerp(this.gameObject.transform.rotation,
                                                               lookRotation,
                                                               this.rotationSpeed * Time.deltaTime);
+    }
+
+    private bool CheckIfPlayerIsVisible()
+    {
+        RaycastHit hit;
+
+        Vector3 dirToPlayer = (new Vector3(this.target.transform.position.x, this.target.transform.position.y + 1.0f, this.target.transform.position.z) - this.gameObject.transform.position).normalized;
+        
+        float distToPlayer = Vector3.Distance(this.gameObject.transform.position, this.target.transform.position);
+
+        if (Physics.Raycast(this.gameObject.transform.position, dirToPlayer, out hit, distToPlayer, this.defaultMask))
+        {
+            Debug.Log($"Vision blocked by {hit.collider.name}");
+            return false;
+        }            
+        else
+        {
+            return true;
+        }
+            
     }
 
     private void OnDrawGizmosSelected()

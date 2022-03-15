@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 3491587144110906792}
   - component: {fileID: 158014117695216363}
   - component: {fileID: 657711036}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,6 +139,9 @@ MonoBehaviour:
   target: {fileID: 0}
   chaseRange: 12
   rotationSpeed: 5
+  defaultMask:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!114 &3491587144110906792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,7 +200,7 @@ GameObject:
   - component: {fileID: 2614875462310835925}
   - component: {fileID: 2085294124716781099}
   - component: {fileID: 2912267455896724116}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}

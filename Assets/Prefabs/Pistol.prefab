@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6911450854992041659}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pistol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,9 +83,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4235205861498021833, guid: 25d0264edbe3181429d200f2e0bc55ac, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4235205861498021835, guid: 25d0264edbe3181429d200f2e0bc55ac, type: 3}
       propertyPath: m_Name
       value: Pistol Muzzle Flash
+      objectReference: {fileID: 0}
+    - target: {fileID: 4235205861498021835, guid: 25d0264edbe3181429d200f2e0bc55ac, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4235205861498021837, guid: 25d0264edbe3181429d200f2e0bc55ac, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4235205861498021839, guid: 25d0264edbe3181429d200f2e0bc55ac, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25d0264edbe3181429d200f2e0bc55ac, type: 3}
@@ -101,9 +117,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6911450854992041659}
     m_Modifications:
+    - target: {fileID: 100000, guid: c1232b0a1b78ddf44bd877453fb7a84c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: c1232b0a1b78ddf44bd877453fb7a84c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: c1232b0a1b78ddf44bd877453fb7a84c, type: 3}
       propertyPath: m_Name
       value: pistol
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: c1232b0a1b78ddf44bd877453fb7a84c, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: c1232b0a1b78ddf44bd877453fb7a84c, type: 3}
       propertyPath: m_RootOrder

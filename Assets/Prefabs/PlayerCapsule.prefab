@@ -70,10 +70,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveSpeed: 4
   SprintSpeed: 6
-  RotationSpeed: 1
+  RotationSpeed: 0.5
   SpeedChangeRate: 10
-  JumpHeight: 1.2
-  Gravity: -15
+  JumpHeight: 0.75
+  Gravity: -22.5
   JumpTimeout: 0.1
   FallTimeout: 0.15
   Grounded: 1
@@ -83,8 +83,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 513
   CinemachineCameraTarget: {fileID: 5823107623849137227}
-  TopClamp: 90
-  BottomClamp: -90
+  TopClamp: 65
+  BottomClamp: -80
 --- !u!114 &8275823797218281440
 MonoBehaviour:
   m_ObjectHideFlags: 0

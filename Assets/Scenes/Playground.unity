@@ -22163,6 +22163,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hunt Rifle
       objectReference: {fileID: 0}
+    - target: {fileID: 2848897916566586348, guid: a0953d8dea92ad44e9b78e08823d7b5b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2871454615356977952, guid: a0953d8dea92ad44e9b78e08823d7b5b, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -22393,6 +22397,131 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
+--- !u!1001 &6305404223904009802
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 60889540441713533}
+    m_Modifications:
+    - target: {fileID: 910339212123627860, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 910339212123627860, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.26999995
+      objectReference: {fileID: 0}
+    - target: {fileID: 910339212123627860, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.32799995
+      objectReference: {fileID: 0}
+    - target: {fileID: 910339212123627860, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.848
+      objectReference: {fileID: 0}
+    - target: {fileID: 910339212123627860, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 910339212123627860, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 910339212123627860, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 910339212123627860, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 910339212123627860, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 910339212123627860, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 910339212123627860, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 932819057146827160, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
+      propertyPath: m_Name
+      value: Throwing Axe
+      objectReference: {fileID: 0}
+    - target: {fileID: 932819057146827160, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
+      propertyPath: m_TagString
+      value: Axe
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698224110291820928, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
+      propertyPath: range
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698224110291820928, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
+      propertyPath: damage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698224110291820928, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
+      propertyPath: FPSCamera
+      value: 
+      objectReference: {fileID: 34504753}
+    - target: {fileID: 1698224110291820928, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
+      propertyPath: axeThrowingForce.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698224110291820928, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
+      propertyPath: axeThrowingForce.z
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698224110291820928, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
+      propertyPath: axeSpinningTorque.x
+      value: 100000
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
+--- !u!1 &6305404223904009803 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 313566638231124218, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
+  m_PrefabInstance: {fileID: 6305404223904009802}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &6305404223904009804
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6305404223904009803}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5002940069103717379, guid: ca92e4ed86de7de4f9005002d29699d6, type: 3}
+--- !u!1 &6387637619851907581 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1091059860238901175, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
+  m_PrefabInstance: {fileID: 6305404223904009802}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &6387637619851907582
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6387637619851907581}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 3.5
+  m_AngularDrag: 0.01
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 1
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &7288094137546172433
 PrefabInstance:
   m_ObjectHideFlags: 0

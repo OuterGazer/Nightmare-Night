@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CinemachineTarget
   - GameOverCanvas
+  - Axe
   layers:
   - Default
   - TransparentFX

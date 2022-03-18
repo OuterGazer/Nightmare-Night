@@ -14,10 +14,17 @@ public class Weapon : MonoBehaviour
     [SerializeField] float range;
     [SerializeField] ParticleSystem muzzleFlash;
     [SerializeField] GameObject bulletImpactSparks;
+    [SerializeField] Vector3 axeThrowingForce = default;
+    [SerializeField] Vector3 axeSpinningTorque = default;
+
+    private Rigidbody axeRB;
 
     private void Awake()
     {
         this.shoot.Enable();
+
+        if (this.gameObject.CompareTag("Axe"))
+            this.axeRB = this.gameObject.GetComponentInChildren<Rigidbody>();
     }
 
     private void OnDestroy()
@@ -34,9 +41,20 @@ public class Weapon : MonoBehaviour
 
     private void Shoot()
     {
-        EmmitRaycast();
+        if (!this.gameObject.CompareTag("Axe"))
+        {
+            EmmitRaycast();
 
-        this.muzzleFlash.Play();
+            this.muzzleFlash.Play();
+        }
+        else
+        {
+            this.gameObject.transform.SetParent(null);
+
+            this.axeRB.isKinematic = false;
+            this.axeRB.AddRelativeForce(this.axeThrowingForce, ForceMode.Impulse);
+            this.axeRB.AddRelativeTorque(this.axeSpinningTorque, ForceMode.Impulse);
+        }        
     }
 
     private void EmmitRaycast()

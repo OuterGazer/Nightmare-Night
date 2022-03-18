@@ -8,6 +8,8 @@ public class EnemyMover : MonoBehaviour
     [SerializeField] Transform target;
     [SerializeField] float chaseRange = 7.0f;
     [SerializeField] float rotationSpeed = default;
+    [SerializeField] float enemyMaxDisengageTime = default;
+    private float enemyDisengageTime = 0f;
 
 
     private Animator enemyAnim;
@@ -51,14 +53,18 @@ public class EnemyMover : MonoBehaviour
         }
         else if(this.distanceToTargetSqr <= (this.chaseRange * this.chaseRange))
         {
+            this.shouldEnemyEngage = true;
+
             if (this.isPlayerVisible)
-            {
-                this.shouldEnemyEngage = true;
+            {                
                 EngageTarget();
             }
             else
             {
-                ReturnToStartPos();
+                this.enemyDisengageTime += Time.deltaTime;
+
+                if(this.enemyDisengageTime >= this.enemyMaxDisengageTime)
+                    ReturnToStartPos();
             }                
         }
         else if(!Mathf.Approximately(this.navMeshAgent.velocity.sqrMagnitude, 0))
@@ -97,6 +103,9 @@ public class EnemyMover : MonoBehaviour
         this.enemyAnim.SetBool("isAttacking", false);
 
         this.navMeshAgent.SetDestination(this.startPos);
+
+        if (this.enemyDisengageTime != 0f)
+            this.enemyDisengageTime = 0f;
     }
 
     private void EngageTarget()

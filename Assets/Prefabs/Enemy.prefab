@@ -139,9 +139,7 @@ MonoBehaviour:
   target: {fileID: 0}
   chaseRange: 12
   rotationSpeed: 5
-  defaultMask:
-    serializedVersion: 2
-    m_Bits: 1
+  enemyMaxDisengageTime: 3
 --- !u!114 &3491587144110906792
 MonoBehaviour:
   m_ObjectHideFlags: 0

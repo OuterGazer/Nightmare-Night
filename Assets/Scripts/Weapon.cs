@@ -24,6 +24,8 @@ public class Weapon : MonoBehaviour
 
     private Rigidbody axeRB;
     private MeshCollider axeCol;
+    private float retrieveTimer = 0.0f;
+
 
     private bool playerHasAxe = true;
 
@@ -47,12 +49,14 @@ public class Weapon : MonoBehaviour
     void Update()
     {
         // To make the axe retrievable by the player once it lays on the ground after throwing
-        if(this.axeChild.CompareTag("Axe") && this.axeRB.isKinematic == false)
+        if(this.axeChild.CompareTag("Axe") && this.axeRB.isKinematic == false && this.retrieveTimer >= 0.75f)
         {
             if(Mathf.Approximately(this.axeRB.velocity.sqrMagnitude, 0.0f))
             {
                 this.axeRB.isKinematic = true;
                 this.axeCol.isTrigger = true;
+
+                this.retrieveTimer = 0.0f;
             }
         }
 
@@ -67,16 +71,12 @@ public class Weapon : MonoBehaviour
 
         if (this.playerHasAxe)
             this.axeChild.transform.localPosition = Vector3.zero;
+        else
+            this.retrieveTimer += Time.deltaTime;
 
         if (this.shoot.triggered)
             Shoot();
     }
-
-    /*private void FixedUpdate()
-    {
-        if (this.playerHasAxe)
-            this.axeRB.transform.localPosition = Vector3.zero;
-    }*/
 
     private void Shoot()
     {

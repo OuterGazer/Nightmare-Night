@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1698224110291820928}
   m_Layer: 0
   m_Name: Throwing Axe
-  m_TagString: Untagged
+  m_TagString: Axe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62,10 +62,16 @@ MonoBehaviour:
       m_Flags: 0
     m_Flags: 1
   FPSCamera: {fileID: 0}
-  damage: 1
-  range: 100
+  player: {fileID: 0}
+  damage: 5
+  range: 12
   muzzleFlash: {fileID: 0}
   bulletImpactSparks: {fileID: 3533772638800352522, guid: db42f8ca5597d0f4d974d6a531bb5503, type: 3}
+  axeThrowingForce: {x: 0, y: 2.5, z: 50}
+  axeSpinningTorque: {x: 100000000, y: 0, z: 0}
+  axeParent: {fileID: 910339212123627860}
+  axeChild: {fileID: 2545936363671871622}
+  retrieveDist: 1.5
 --- !u!1 &1091059860238901175
 GameObject:
   m_ObjectHideFlags: 0
@@ -75,9 +81,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2545936363671871622}
+  - component: {fileID: 6387637619851907582}
   m_Layer: 0
   m_Name: Axe
-  m_TagString: Untagged
+  m_TagString: Axe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,6 +104,22 @@ Transform:
   m_Father: {fileID: 910339212123627860}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &6387637619851907582
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091059860238901175}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 3.5
+  m_AngularDrag: 0.01
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 1
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &620206900392281515
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -122,7 +145,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ca92e4ed86de7de4f9005002d29699d6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.0031
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ca92e4ed86de7de4f9005002d29699d6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -130,44 +153,67 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ca92e4ed86de7de4f9005002d29699d6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.0104
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ca92e4ed86de7de4f9005002d29699d6, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.6987843
+      value: -0.6041042
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ca92e4ed86de7de4f9005002d29699d6, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.10816919
+      value: -0.13089234
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ca92e4ed86de7de4f9005002d29699d6, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.6987843
+      value: 0.78083557
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ca92e4ed86de7de4f9005002d29699d6, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.10816919
+      value: 0.090670906
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ca92e4ed86de7de4f9005002d29699d6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: 0.948
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ca92e4ed86de7de4f9005002d29699d6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 270
+      value: 255.30301
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ca92e4ed86de7de4f9005002d29699d6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -17.599
+      value: -18.301
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ca92e4ed86de7de4f9005002d29699d6, type: 3}
       propertyPath: m_Name
       value: toolAxe
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ca92e4ed86de7de4f9005002d29699d6, type: 3}
+      propertyPath: m_TagString
+      value: Axe
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca92e4ed86de7de4f9005002d29699d6, type: 3}
+--- !u!1 &313566638231124218 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ca92e4ed86de7de4f9005002d29699d6, type: 3}
+  m_PrefabInstance: {fileID: 620206900392281515}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1085881663677637184 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ca92e4ed86de7de4f9005002d29699d6, type: 3}
   m_PrefabInstance: {fileID: 620206900392281515}
   m_PrefabAsset: {fileID: 0}
+--- !u!64 &6305404223904009804
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 313566638231124218}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5002940069103717379, guid: ca92e4ed86de7de4f9005002d29699d6, type: 3}

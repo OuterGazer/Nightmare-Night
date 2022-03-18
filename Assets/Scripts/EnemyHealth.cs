@@ -45,4 +45,10 @@ public class EnemyHealth : MonoBehaviour
         yield return new WaitForSeconds(this.enemyDeathDelay);
         GameObject.Destroy(this.gameObject);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.CompareTag("Axe"))
+            ProcessDeath();
+    }
 }

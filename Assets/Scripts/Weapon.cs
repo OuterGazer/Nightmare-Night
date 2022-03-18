@@ -8,6 +8,7 @@ public class Weapon : MonoBehaviour
     [Header("Control Input Options")]
     [SerializeField] InputAction shoot;
     [SerializeField] Camera FPSCamera;
+    [SerializeField] Transform player;
 
     [Header("Weapon Characteristics")]
     [SerializeField] int damage;
@@ -16,15 +17,25 @@ public class Weapon : MonoBehaviour
     [SerializeField] GameObject bulletImpactSparks;
     [SerializeField] Vector3 axeThrowingForce = default;
     [SerializeField] Vector3 axeSpinningTorque = default;
+    [SerializeField] Transform axeParent;
+    [SerializeField] Transform axeChild;
+    [SerializeField] float retrieveDist = default;
+
 
     private Rigidbody axeRB;
+    private MeshCollider axeCol;
+
+    private bool playerHasAxe = true;
 
     private void Awake()
     {
         this.shoot.Enable();
 
         if (this.gameObject.CompareTag("Axe"))
+        {
             this.axeRB = this.gameObject.GetComponentInChildren<Rigidbody>();
+            this.axeCol = this.gameObject.GetComponentInChildren<MeshCollider>();
+        }           
     }
 
     private void OnDestroy()
@@ -35,9 +46,37 @@ public class Weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // To make the axe retrievable by the player once it lays on the ground after throwing
+        if(this.axeChild.CompareTag("Axe") && this.axeRB.isKinematic == false)
+        {
+            if(Mathf.Approximately(this.axeRB.velocity.sqrMagnitude, 0.0f))
+            {
+                this.axeRB.isKinematic = true;
+                this.axeCol.isTrigger = true;
+            }
+        }
+
+        // Retrieve axe when player is close enough
+        if (!this.playerHasAxe && Mathf.Approximately(this.axeRB.velocity.sqrMagnitude, 0.0f))
+        {
+            float distToPlayer = (this.player.transform.position - this.axeChild.transform.position).sqrMagnitude;
+
+            if (distToPlayer <= this.retrieveDist*this.retrieveDist)
+                RetrieveAxe();
+        }
+
+        if (this.playerHasAxe)
+            this.axeChild.transform.localPosition = Vector3.zero;
+
         if (this.shoot.triggered)
             Shoot();
     }
+
+    /*private void FixedUpdate()
+    {
+        if (this.playerHasAxe)
+            this.axeRB.transform.localPosition = Vector3.zero;
+    }*/
 
     private void Shoot()
     {
@@ -49,11 +88,17 @@ public class Weapon : MonoBehaviour
         }
         else
         {
-            this.gameObject.transform.SetParent(null);
+            if (!this.playerHasAxe) { return; } 
+
+            this.axeChild.transform.SetParent(null);
 
             this.axeRB.isKinematic = false;
+            this.axeCol.isTrigger = false;
+
             this.axeRB.AddRelativeForce(this.axeThrowingForce, ForceMode.Impulse);
             this.axeRB.AddRelativeTorque(this.axeSpinningTorque, ForceMode.Impulse);
+
+            this.playerHasAxe = false;
         }        
     }
 
@@ -78,5 +123,15 @@ public class Weapon : MonoBehaviour
     private void PlayHitParticle(RaycastHit hit)
     {
         GameObject.Instantiate<GameObject>(this.bulletImpactSparks, hit.point, Quaternion.LookRotation(hit.normal));
+    }
+
+    private void RetrieveAxe()
+    {
+        this.axeChild.transform.SetParent(this.axeParent);
+
+        this.axeChild.transform.localPosition = Vector3.zero;
+        this.axeChild.transform.localRotation = Quaternion.Euler(Vector3.zero);
+
+        this.playerHasAxe = true;
     }
 }

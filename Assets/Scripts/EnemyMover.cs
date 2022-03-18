@@ -150,7 +150,7 @@ public class EnemyMover : MonoBehaviour
 
         if (Physics.Raycast(this.gameObject.transform.position, dirToPlayer, out hit, distToPlayer, this.defaultMask))
         {
-            Debug.Log($"Vision blocked by {hit.collider.name}");
+            //Debug.Log($"Vision blocked by {hit.collider.name}");
             return false;
         }            
         else

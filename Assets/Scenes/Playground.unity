@@ -22069,6 +22069,10 @@ PrefabInstance:
       propertyPath: SprintSpeed
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 2555190682011105542, guid: 4083fbee73f386d4aa6ef690bca6fab8, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 7614831184328759717, guid: 4083fbee73f386d4aa6ef690bca6fab8, type: 3}
       propertyPath: weapons
       value: 
@@ -22404,6 +22408,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 60889540441713533}
     m_Modifications:
+    - target: {fileID: 313566638231124218, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
+      propertyPath: m_TagString
+      value: Axe
+      objectReference: {fileID: 0}
     - target: {fileID: 910339212123627860, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -22456,6 +22464,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Axe
       objectReference: {fileID: 0}
+    - target: {fileID: 1091059860238901175, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
+      propertyPath: m_TagString
+      value: Axe
+      objectReference: {fileID: 0}
     - target: {fileID: 1698224110291820928, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
       propertyPath: range
       value: 12
@@ -22465,9 +22477,25 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1698224110291820928, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 3893294199639930361}
+    - target: {fileID: 1698224110291820928, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
+      propertyPath: axeChild
+      value: 
+      objectReference: {fileID: 8418828702852493004}
+    - target: {fileID: 1698224110291820928, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
       propertyPath: FPSCamera
       value: 
       objectReference: {fileID: 34504753}
+    - target: {fileID: 1698224110291820928, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
+      propertyPath: axeParent
+      value: 
+      objectReference: {fileID: 6567205979664363294}
+    - target: {fileID: 1698224110291820928, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
+      propertyPath: retrieveDist
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1698224110291820928, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
       propertyPath: axeThrowingForce.y
       value: 2.5
@@ -22478,7 +22506,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1698224110291820928, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
       propertyPath: axeSpinningTorque.x
-      value: 100000
+      value: 100000000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
@@ -22495,7 +22523,7 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6305404223904009803}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
@@ -22522,6 +22550,11 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!4 &6567205979664363294 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 910339212123627860, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
+  m_PrefabInstance: {fileID: 6305404223904009802}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7288094137546172433
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22587,4 +22620,9 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 5823107623849137228, guid: 4083fbee73f386d4aa6ef690bca6fab8, type: 3}
   m_PrefabInstance: {fileID: 2555190681467372115}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8418828702852493004 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2545936363671871622, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
+  m_PrefabInstance: {fileID: 6305404223904009802}
   m_PrefabAsset: {fileID: 0}

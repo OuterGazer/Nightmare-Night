@@ -51,10 +51,15 @@ public class EnemyMover : MonoBehaviour
         }
         else if(this.distanceToTargetSqr <= (this.chaseRange * this.chaseRange))
         {
-            this.shouldEnemyEngage = true;
-
-            if(this.isPlayerVisible)
+            if (this.isPlayerVisible)
+            {
+                this.shouldEnemyEngage = true;
                 EngageTarget();
+            }
+            else
+            {
+                ReturnToStartPos();
+            }                
         }
         else if(!Mathf.Approximately(this.navMeshAgent.velocity.sqrMagnitude, 0))
         {

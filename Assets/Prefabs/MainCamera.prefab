@@ -10101,6 +10101,9 @@ MonoBehaviour:
   axeParent: {fileID: 0}
   axeChild: {fileID: 0}
   retrieveDist: 0
+  axeVelocityCap: 0
+  throwThreshold: 0
+  axeGravityUponLaunch: 0
 --- !u!1 &5595340599838699269
 GameObject:
   m_ObjectHideFlags: 0
@@ -15136,6 +15139,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Throwing Axe
       objectReference: {fileID: 0}
+    - target: {fileID: 932819057146827160, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1698224110291820928, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
       propertyPath: player
       value: 
@@ -15144,6 +15151,46 @@ PrefabInstance:
       propertyPath: FPSCamera
       value: 
       objectReference: {fileID: 3568555620331360846}
+    - target: {fileID: 1698224110291820928, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
+      propertyPath: axeVelocityCap
+      value: 0.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698224110291820928, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
+      propertyPath: throwThreshold
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698224110291820928, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
+      propertyPath: axeThrowingForce.z
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698224110291820928, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
+      propertyPath: axeSpinningTorque.x
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698224110291820928, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
+      propertyPath: axeSpinningTorque.z
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698224110291820928, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
+      propertyPath: axeGravityUponLaunch
+      value: -15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6305404223904009804, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 78dfad58ab2730c4ba6a370572f8ab54, type: 2}
+    - target: {fileID: 6387637619851907582, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
+      propertyPath: m_Drag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6387637619851907582, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
+      propertyPath: m_Mass
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6387637619851907582, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
 --- !u!4 &1622918377772608275 stripped
@@ -15176,7 +15223,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2848897916566586348, guid: a0953d8dea92ad44e9b78e08823d7b5b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2871454615356977952, guid: a0953d8dea92ad44e9b78e08823d7b5b, type: 3}
       propertyPath: m_RootOrder

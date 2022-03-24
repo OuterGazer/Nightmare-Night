@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2492620971685884268}
   - component: {fileID: 2177999210036620572}
   - component: {fileID: 7614831184328759717}
+  - component: {fileID: 1065762474970921346}
   m_Layer: 6
   m_Name: PlayerCapsule
   m_TagString: Player
@@ -68,8 +69,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55919ac34a26952479f3fc91f777b2fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 4
-  SprintSpeed: 6
+  MoveSpeed: 5
+  SprintSpeed: 7
   RotationSpeed: 0.5
   SpeedChangeRate: 10
   JumpHeight: 0.75
@@ -118,6 +119,7 @@ MonoBehaviour:
   look: {x: 0, y: 0}
   jump: 0
   sprint: 0
+  zoomIn: 0
   analogMovement: 0
   cursorLocked: 1
   cursorInputForLook: 1
@@ -234,6 +236,22 @@ MonoBehaviour:
   maxHitPoints: 100
   gameOverCanvas: {fileID: 0}
   weapons: {fileID: 0}
+--- !u!114 &1065762474970921346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2177999210036620560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 366473e5942fb8543b50a861dd67518a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  virtualCam: {fileID: 0}
+  sniperRifle: {fileID: 0}
+  normalFOV: 40
+  zoomedFOV: 25
 --- !u!1 &2555190682011105542
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,7 +266,7 @@ GameObject:
   - component: {fileID: 2555190682011105540}
   m_Layer: 6
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -22265,8 +22265,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3893294199639930361}
     - target: {fileID: 988156175643618247, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
+      propertyPath: maxAxeDrag
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 988156175643618247, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
+      propertyPath: maxAxeMass
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 988156175643618247, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
+      propertyPath: maxAxeGravity
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 988156175643618247, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
+      propertyPath: axeVelocityCap
+      value: 0.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 988156175643618247, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
+      propertyPath: throwThreshold
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 988156175643618247, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
       propertyPath: axeThrowingForce.z
-      value: 20
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 988156175643618247, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
       propertyPath: axeSpinningTorque.x
@@ -22279,6 +22299,10 @@ PrefabInstance:
     - target: {fileID: 988156175643618247, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
       propertyPath: axeSpinningTorque.z
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 988156175643618247, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
+      propertyPath: axeGravityUponLaunch
+      value: -15
       objectReference: {fileID: 0}
     - target: {fileID: 3568555620331360841, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
       propertyPath: m_RootOrder
@@ -22330,7 +22354,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4792566164005575609, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
       propertyPath: m_Drag
-      value: 0.1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4792566164005575609, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
+      propertyPath: m_Mass
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 4792566164005575609, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
       propertyPath: m_CollisionDetection

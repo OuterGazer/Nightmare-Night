@@ -20,11 +20,16 @@ public class Weapon : MonoBehaviour
     [SerializeField] Transform axeParent;
     [SerializeField] Transform axeChild;
     [SerializeField] float retrieveDist = default;
+    [SerializeField] float axeVelocityCap = default;
+    [Tooltip("Max time upon which axe velocity cap is activated so it quickly falls to the ground. Used to limit its range. Should be a small number less than 0.2 seconds")]
+    [SerializeField] float throwThreshold = default;
+    [SerializeField] float axeGravityUponLaunch = default;
 
 
     private Rigidbody axeRB;
     private MeshCollider axeCol;
     private float retrieveTimer = 0.0f;
+    private Vector3 curGravity;
 
 
     private bool playerHasAxe = true;
@@ -37,7 +42,9 @@ public class Weapon : MonoBehaviour
         {
             this.axeRB = this.gameObject.GetComponentInChildren<Rigidbody>();
             this.axeCol = this.gameObject.GetComponentInChildren<MeshCollider>();
-        }           
+        }
+
+        this.curGravity = Physics.gravity;
     }
 
     private void OnDestroy()
@@ -48,13 +55,20 @@ public class Weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // To make the axe retrievable by the player once it lays on the ground after throwing
-        if(this.axeChild.CompareTag("Axe") && this.axeRB.isKinematic == false && this.retrieveTimer >= 0.75f)
+        // Increase Axe weight to lessen its range
+        if (this.axeChild.CompareTag("Axe") && this.axeRB.isKinematic == false && this.retrieveTimer >= this.throwThreshold && this.retrieveTimer <= 0.75f)
         {
-            if(Mathf.Approximately(this.axeRB.velocity.sqrMagnitude, 0.0f))
+            this.axeRB.velocity *= this.axeVelocityCap; 
+        }        
+        // To make the axe retrievable by the player once it lays on the ground after throwing
+        else if (this.retrieveTimer >= 0.75f)
+        {
+            if (Mathf.Approximately(this.axeRB.velocity.sqrMagnitude, 0.0f))
             {
+                Physics.gravity = this.curGravity;
+
                 this.axeRB.isKinematic = true;
-                this.axeCol.isTrigger = true;
+                this.axeCol.isTrigger = true;                
 
                 this.retrieveTimer = 0.0f;
             }
@@ -69,8 +83,14 @@ public class Weapon : MonoBehaviour
                 RetrieveAxe();
         }
 
+        // If player has axe, check every frame to reposition it correctly, else start the counter to be able to retrieve it (player has thrown it)
         if (this.playerHasAxe)
+        {
             this.axeChild.transform.localPosition = Vector3.zero;
+
+            if(this.axeChild.transform.localRotation != Quaternion.identity)
+                this.axeChild.transform.localRotation = Quaternion.identity;
+        }            
         else
             this.retrieveTimer += Time.deltaTime;
 
@@ -95,6 +115,7 @@ public class Weapon : MonoBehaviour
             this.axeRB.isKinematic = false;
             this.axeCol.isTrigger = false;
 
+            this.axeRB.velocity = Vector3.zero;
             this.axeRB.AddRelativeForce(this.axeThrowingForce, ForceMode.Impulse);
             this.axeRB.AddRelativeTorque(this.axeSpinningTorque, ForceMode.Impulse);
 
@@ -130,8 +151,14 @@ public class Weapon : MonoBehaviour
         this.axeChild.transform.SetParent(this.axeParent);
 
         this.axeChild.transform.localPosition = Vector3.zero;
-        this.axeChild.transform.localRotation = Quaternion.Euler(Vector3.zero);
+        this.axeChild.transform.localRotation = Quaternion.identity;
 
         this.playerHasAxe = true;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.CompareTag("Axe"))
+            Physics.gravity = new Vector3(0, this.axeGravityUponLaunch);
     }
 }

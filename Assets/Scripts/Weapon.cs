@@ -55,11 +55,20 @@ public class Weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(this.axeChild != null)
+            ProcessAxeBehaviour();
+
+        if (this.shoot.triggered)
+            Shoot();
+    }
+
+    private void ProcessAxeBehaviour()
+    {
         // Increase Axe weight to lessen its range
-        if (this.axeChild.CompareTag("Axe") && this.axeRB.isKinematic == false && this.retrieveTimer >= this.throwThreshold && this.retrieveTimer <= 0.75f)
+        if (this.retrieveTimer >= this.throwThreshold && this.retrieveTimer <= 0.75f && this.axeRB.isKinematic == false)
         {
-            this.axeRB.velocity *= this.axeVelocityCap; 
-        }        
+            this.axeRB.velocity *= this.axeVelocityCap;
+        }
         // To make the axe retrievable by the player once it lays on the ground after throwing
         else if (this.retrieveTimer >= 0.75f)
         {
@@ -68,7 +77,7 @@ public class Weapon : MonoBehaviour
                 Physics.gravity = this.curGravity;
 
                 this.axeRB.isKinematic = true;
-                this.axeCol.isTrigger = true;                
+                this.axeCol.isTrigger = true;
 
                 this.retrieveTimer = 0.0f;
             }
@@ -79,7 +88,7 @@ public class Weapon : MonoBehaviour
         {
             float distToPlayer = (this.player.transform.position - this.axeChild.transform.position).sqrMagnitude;
 
-            if (distToPlayer <= this.retrieveDist*this.retrieveDist)
+            if (distToPlayer <= this.retrieveDist * this.retrieveDist)
                 RetrieveAxe();
         }
 
@@ -88,14 +97,11 @@ public class Weapon : MonoBehaviour
         {
             this.axeChild.transform.localPosition = Vector3.zero;
 
-            if(this.axeChild.transform.localRotation != Quaternion.identity)
+            if (this.axeChild.transform.localRotation != Quaternion.identity)
                 this.axeChild.transform.localRotation = Quaternion.identity;
-        }            
+        }
         else
             this.retrieveTimer += Time.deltaTime;
-
-        if (this.shoot.triggered)
-            Shoot();
     }
 
     private void Shoot()

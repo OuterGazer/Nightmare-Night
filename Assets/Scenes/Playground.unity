@@ -22265,6 +22265,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3893294199639930361}
     - target: {fileID: 988156175643618247, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
+      propertyPath: axeThrowingForce.z
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 988156175643618247, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
       propertyPath: axeSpinningTorque.x
       value: 100
       objectReference: {fileID: 0}
@@ -22324,6 +22328,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainCamera
       objectReference: {fileID: 0}
+    - target: {fileID: 4792566164005575609, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
+      propertyPath: m_Drag
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4792566164005575609, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595340599493510155, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 78dfad58ab2730c4ba6a370572f8ab54, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
 --- !u!1001 &7288094137546172433

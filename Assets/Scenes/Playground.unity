@@ -22027,6 +22027,10 @@ PrefabInstance:
       propertyPath: sniperRifle
       value: 
       objectReference: {fileID: 962193471}
+    - target: {fileID: 1065762474970921346, guid: 4083fbee73f386d4aa6ef690bca6fab8, type: 3}
+      propertyPath: rotSpeedReduction
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1545330682281080746, guid: 4083fbee73f386d4aa6ef690bca6fab8, type: 3}
       propertyPath: m_RootOrder
       value: 6

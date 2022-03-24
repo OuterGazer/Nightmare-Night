@@ -10,14 +10,18 @@ public class WeaponZoom : MonoBehaviour
     [SerializeField] GameObject sniperRifle;
     [SerializeField] float normalFOV = default;
     [SerializeField] float zoomedFOV = default;
+    [SerializeField] float rotSpeedReduction = default;
 
     private StarterAssetsInputs input;
+    private FirstPersonController playerMovement;
+    private float curRotSpeed;
 
     private bool isZoomedIn = false;
 
     private void Awake()
     {
         this.input = this.gameObject.GetComponent<StarterAssetsInputs>();
+        this.playerMovement = this.gameObject.GetComponent<FirstPersonController>();
     }
 
     // Start is called before the first frame update
@@ -37,10 +41,13 @@ public class WeaponZoom : MonoBehaviour
             if (!this.isZoomedIn)
             {
                 this.virtualCam.m_Lens.FieldOfView = this.zoomedFOV;
+                this.curRotSpeed = this.playerMovement.RotationSpeed;
+                this.playerMovement.RotationSpeed *= this.rotSpeedReduction;
             }
             else
             {
                 this.virtualCam.m_Lens.FieldOfView = this.normalFOV;
+                this.playerMovement.RotationSpeed = this.curRotSpeed;
             }
 
             this.isZoomedIn = !this.isZoomedIn;

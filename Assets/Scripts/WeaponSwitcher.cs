@@ -83,10 +83,15 @@ public class WeaponSwitcher : MonoBehaviour
     }
 
     private void SetWeaponActive()
-    {
+    { 
+        // Before changing weapons, check if we are zoomed in to return to normal view upon weapon change.
+        WeaponZoom weaponZoom = GameObject.FindObjectOfType<WeaponZoom>();
+        if (weaponZoom != null && weaponZoom.IsZoomedIn)
+            weaponZoom.ReturnToNormalView();
+
         int weaponIndex = 0;
 
-        foreach(Transform weapon in this.gameObject.transform)
+        foreach (Transform weapon in this.gameObject.transform)
         {
             if(weaponIndex == this.currentWeapon)
             {

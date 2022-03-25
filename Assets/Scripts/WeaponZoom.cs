@@ -16,6 +16,7 @@ public class WeaponZoom : MonoBehaviour
     private float curRotSpeed;
 
     private bool isZoomedIn = false;
+    public bool IsZoomedIn => this.isZoomedIn;
 
     private void Awake()
     {
@@ -39,16 +40,23 @@ public class WeaponZoom : MonoBehaviour
                 this.virtualCam.m_Lens.FieldOfView = this.zoomedFOV;
                 this.curRotSpeed = this.playerMovement.RotationSpeed;
                 this.playerMovement.RotationSpeed *= this.rotSpeedReduction;
+
+                this.isZoomedIn = true;
             }
             else
             {
-                this.virtualCam.m_Lens.FieldOfView = this.normalFOV;
-                this.playerMovement.RotationSpeed = this.curRotSpeed;
+                ReturnToNormalView();
             }
-
-            this.isZoomedIn = !this.isZoomedIn;
 
             this.input.zoomIn = false;
         }
+    }
+
+    public void ReturnToNormalView()
+    {
+        this.virtualCam.m_Lens.FieldOfView = this.normalFOV;
+        this.playerMovement.RotationSpeed = this.curRotSpeed;
+
+        this.isZoomedIn = false;
     }
 }

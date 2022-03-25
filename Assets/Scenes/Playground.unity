@@ -21725,6 +21725,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c09823da1bf9a44b930cb56396da1b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponSelect:
+    m_Name: Weapon Select
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: 52f354a6-9606-4f6c-901e-6adea7f88548
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 73babdd1-f33f-4c04-96b2-22d35a193609
+      m_Path: <Keyboard>/1
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Weapon Select
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 8f08e609-ccbf-4940-8582-ac15de352dc0
+      m_Path: <Keyboard>/numpad1
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Weapon Select
+      m_Flags: 0
+    - m_Name: 
+      m_Id: a6dd0efd-3249-4423-b82c-5d2aadd7c6b8
+      m_Path: <Keyboard>/2
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Weapon Select
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 643e545f-06ff-4310-b2c0-277861febaa3
+      m_Path: <Keyboard>/numpad2
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Weapon Select
+      m_Flags: 0
+    m_Flags: 0
   currentWeapon: 1
 --- !u!1001 &1550578167834882266
 PrefabInstance:

@@ -21766,6 +21766,23 @@ MonoBehaviour:
       m_Action: Weapon Select
       m_Flags: 0
     m_Flags: 0
+  scrollWheel:
+    m_Name: Scroll Wheel
+    m_Type: 0
+    m_ExpectedControlType: Axis
+    m_Id: 902a4f41-077a-43da-a2cc-e737bfdce0b0
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 893e461f-4859-4fc1-af99-4d133994de35
+      m_Path: <Mouse>/scroll/y
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Scroll Wheel
+      m_Flags: 0
+    m_Flags: 0
   currentWeapon: 1
 --- !u!1001 &1550578167834882266
 PrefabInstance:

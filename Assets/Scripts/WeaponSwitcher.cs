@@ -8,6 +8,7 @@ public class WeaponSwitcher : MonoBehaviour
 {
     [Header("Button Mapping")]
     [SerializeField] InputAction weaponSelect;
+    [SerializeField] InputAction scrollWheel;
 
     [Header("Misc.")]
     [SerializeField] int currentWeapon = 0;
@@ -15,11 +16,13 @@ public class WeaponSwitcher : MonoBehaviour
     private void Awake()
     {
         this.weaponSelect.Enable();
+        this.scrollWheel.Enable();
     }
 
     private void OnDestroy()
     {
         this.weaponSelect.Disable();
+        this.scrollWheel.Disable();
     }
 
     // Start is called before the first frame update
@@ -59,7 +62,23 @@ public class WeaponSwitcher : MonoBehaviour
 
     private void ProcessScrollWheel()
     {
-        
+        if (this.scrollWheel.triggered)
+        {
+            switch (this.scrollWheel.ReadValue<float>())
+            {
+                case float i when i < 0:
+                    this.currentWeapon--;
+                    if (currentWeapon <= -1)
+                        this.currentWeapon = 1;
+                    break;
+
+                case float i when i > 0:
+                    this.currentWeapon++;
+                    if (currentWeapon >= 2)
+                        this.currentWeapon = 0;
+                    break;
+            }
+        }
     }
 
     private void SetWeaponActive()

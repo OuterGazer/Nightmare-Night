@@ -128,6 +128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5584171170299735920}
+  - component: {fileID: 60889540441713534}
   m_Layer: 0
   m_Name: Weapons
   m_TagString: Untagged
@@ -151,6 +152,77 @@ Transform:
   m_Father: {fileID: 3568555620331360841}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &60889540441713534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5584171170299735921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c09823da1bf9a44b930cb56396da1b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponSelect:
+    m_Name: Weapon Select
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: 52f354a6-9606-4f6c-901e-6adea7f88548
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 73babdd1-f33f-4c04-96b2-22d35a193609
+      m_Path: <Keyboard>/1
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Weapon Select
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 8f08e609-ccbf-4940-8582-ac15de352dc0
+      m_Path: <Keyboard>/numpad1
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Weapon Select
+      m_Flags: 0
+    - m_Name: 
+      m_Id: a6dd0efd-3249-4423-b82c-5d2aadd7c6b8
+      m_Path: <Keyboard>/2
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Weapon Select
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 643e545f-06ff-4310-b2c0-277861febaa3
+      m_Path: <Keyboard>/numpad2
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Weapon Select
+      m_Flags: 0
+    m_Flags: 0
+  scrollWheel:
+    m_Name: Scroll Wheel
+    m_Type: 0
+    m_ExpectedControlType: Axis
+    m_Id: 902a4f41-077a-43da-a2cc-e737bfdce0b0
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 893e461f-4859-4fc1-af99-4d133994de35
+      m_Path: <Mouse>/scroll/y
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Scroll Wheel
+      m_Flags: 0
+    m_Flags: 0
+  currentWeapon: 1
 --- !u!1001 &1884737867468114503
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -323,7 +395,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2848897916566586348, guid: a0953d8dea92ad44e9b78e08823d7b5b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2871454615356977952, guid: a0953d8dea92ad44e9b78e08823d7b5b, type: 3}
       propertyPath: m_RootOrder
@@ -374,9 +446,17 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4389344590747694068, guid: a0953d8dea92ad44e9b78e08823d7b5b, type: 3}
+      propertyPath: ammoType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4389344590747694068, guid: a0953d8dea92ad44e9b78e08823d7b5b, type: 3}
       propertyPath: FPSCamera
       value: 
       objectReference: {fileID: 3568555620331360846}
+    - target: {fileID: 4389344590747694068, guid: a0953d8dea92ad44e9b78e08823d7b5b, type: 3}
+      propertyPath: shootSoundRadius
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0953d8dea92ad44e9b78e08823d7b5b, type: 3}
 --- !u!1 &6423029436751416955 stripped
@@ -401,7 +481,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b9703cc59385de4dad090f46877c218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoAmount: 5
+  ammoSlots:
+  - ammoType: 1
+    ammoAmount: 5
+    maxAmmoAmount: 5
 --- !u!114 &962193475
 MonoBehaviour:
   m_ObjectHideFlags: 0

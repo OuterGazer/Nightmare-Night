@@ -73,7 +73,7 @@ public class Weapon : MonoBehaviour
         if(this.axeChild != null)
             ProcessAxeBehaviour();
 
-        if (this.shoot.triggered && this.ammoSlot.AmmoAmount > 0)
+        if (this.shoot.triggered)
             Shoot();
     }
 
@@ -123,7 +123,7 @@ public class Weapon : MonoBehaviour
     {
         if (!this.gameObject.CompareTag("Axe"))
         {
-            if (this.isWeaponLoaded)
+            if (this.isWeaponLoaded && this.ammoSlot.AmmoAmount > 0)
                 this.StartCoroutine(ShootBullet());
         }
         else

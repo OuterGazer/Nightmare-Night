@@ -21713,6 +21713,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5584171170299735921, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
   m_PrefabInstance: {fileID: 5595340599493510157}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &60889540441713534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 60889540441713532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c09823da1bf9a44b930cb56396da1b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWeapon: 1
 --- !u!1001 &1550578167834882266
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22348,6 +22361,10 @@ PrefabInstance:
     - target: {fileID: 4773933339217444451, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
       propertyPath: shootSoundRadius
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423029436751416955, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}

@@ -50,7 +50,7 @@ Camera:
   m_FOVAxisMode: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 50
+  m_FocalLength: 32.96973
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -10104,6 +10104,7 @@ MonoBehaviour:
   axeVelocityCap: 0
   throwThreshold: 0
   axeGravityUponLaunch: 0
+  maxAxeSpinningSpeed: 0
 --- !u!1 &5595340599838699269
 GameObject:
   m_ObjectHideFlags: 0
@@ -15165,11 +15166,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1698224110291820928, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
       propertyPath: axeSpinningTorque.x
-      value: 1000
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1698224110291820928, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
       propertyPath: axeSpinningTorque.z
-      value: 300
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698224110291820928, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
+      propertyPath: maxAxeSpinningSpeed
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1698224110291820928, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
       propertyPath: axeGravityUponLaunch
@@ -15193,11 +15198,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
+--- !u!114 &988156175643618247 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1698224110291820928, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
+  m_PrefabInstance: {fileID: 1884737867468114503}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42aa498c287cc2d4781e25d1845c944b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1514289415517640176 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1091059860238901175, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
+  m_PrefabInstance: {fileID: 1884737867468114503}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1622918377772608275 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 910339212123627860, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
   m_PrefabInstance: {fileID: 1884737867468114503}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2027607976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1514289415517640176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbbb9c4613cc7d94bba4e7db92331a93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axe: {fileID: 988156175643618247}
 --- !u!1001 &9127246899554766231
 PrefabInstance:
   m_ObjectHideFlags: 0

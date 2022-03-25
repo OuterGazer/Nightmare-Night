@@ -10449,6 +10449,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d98dbc159492f6b4497fcf7a0a7b1672, type: 3}
+--- !u!114 &913424649 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 988156175643618247, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
+  m_PrefabInstance: {fileID: 5595340599493510157}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42aa498c287cc2d4781e25d1845c944b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &921296819
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20274,6 +20285,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 952fa39b21f2c034580d868dba09859b, type: 3}
   m_PrefabInstance: {fileID: 1183972272}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2027607973 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1514289415517640176, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
+  m_PrefabInstance: {fileID: 5595340599493510157}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2027607976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027607973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbbb9c4613cc7d94bba4e7db92331a93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axe: {fileID: 913424649}
 --- !u!1001 &2033835799
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22292,6 +22321,22 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 3893294199639930361}
+    - target: {fileID: 988156175643618247, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
+      propertyPath: axeSpinningTorque.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 988156175643618247, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
+      propertyPath: axeSpinningTorque.z
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 988156175643618247, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
+      propertyPath: maxAxeSpinningSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1645475121669446623, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3568555620331360841, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -22354,6 +22399,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3568555620331360846, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
       propertyPath: m_projectionMatrixMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6423029436751416955, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

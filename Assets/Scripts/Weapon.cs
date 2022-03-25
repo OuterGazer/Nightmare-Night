@@ -24,6 +24,7 @@ public class Weapon : MonoBehaviour
     [Tooltip("Max time upon which axe velocity cap is activated so it quickly falls to the ground. Used to limit its range. Should be a small number less than 0.2 seconds")]
     [SerializeField] float throwThreshold = default;
     [SerializeField] float axeGravityUponLaunch = default;
+    [SerializeField] float maxAxeSpinningSpeed = default;
 
 
     private Rigidbody axeRB;
@@ -34,6 +35,7 @@ public class Weapon : MonoBehaviour
 
     private bool playerHasAxe = true;
 
+
     private void Awake()
     {
         this.shoot.Enable();
@@ -42,6 +44,8 @@ public class Weapon : MonoBehaviour
         {
             this.axeRB = this.gameObject.GetComponentInChildren<Rigidbody>();
             this.axeCol = this.gameObject.GetComponentInChildren<MeshCollider>();
+
+            this.axeRB.maxAngularVelocity = this.maxAxeSpinningSpeed;
         }
 
         this.curGravity = Physics.gravity;
@@ -162,9 +166,8 @@ public class Weapon : MonoBehaviour
         this.playerHasAxe = true;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    public void OnAxeCollision()
     {
-        if (collision.collider.CompareTag("Axe"))
-            Physics.gravity = new Vector3(0, this.axeGravityUponLaunch);
+        Physics.gravity = new Vector3(0, this.axeGravityUponLaunch);
     }
 }

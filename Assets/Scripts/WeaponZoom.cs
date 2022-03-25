@@ -7,7 +7,6 @@ using StarterAssets;
 public class WeaponZoom : MonoBehaviour
 {
     [SerializeField] CinemachineVirtualCamera virtualCam;
-    [SerializeField] GameObject sniperRifle;
     [SerializeField] float normalFOV = default;
     [SerializeField] float zoomedFOV = default;
     [SerializeField] float rotSpeedReduction = default;
@@ -20,8 +19,8 @@ public class WeaponZoom : MonoBehaviour
 
     private void Awake()
     {
-        this.input = this.gameObject.GetComponent<StarterAssetsInputs>();
-        this.playerMovement = this.gameObject.GetComponent<FirstPersonController>();
+        this.input = GameObject.FindObjectOfType<StarterAssetsInputs>();
+        this.playerMovement = GameObject.FindObjectOfType<FirstPersonController>();
     }
 
     // Start is called before the first frame update
@@ -35,9 +34,6 @@ public class WeaponZoom : MonoBehaviour
     {
         if (this.input.zoomIn)
         {
-            // If axe is equipped, don't zoom in
-            if(!this.sniperRifle.activeInHierarchy) { return; }
-
             if (!this.isZoomedIn)
             {
                 this.virtualCam.m_Lens.FieldOfView = this.zoomedFOV;

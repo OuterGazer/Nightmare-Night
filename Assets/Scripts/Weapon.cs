@@ -15,6 +15,10 @@ public class Weapon : MonoBehaviour
     [SerializeField] float range;
     [SerializeField] ParticleSystem muzzleFlash;
     [SerializeField] GameObject bulletImpactSparks;
+    private Ammo ammoSlot;
+    [SerializeField] float shootSoundRadius = default;
+
+    [Header("Axe Characteristics")]
     [SerializeField] Vector3 axeThrowingForce = default;
     [SerializeField] Vector3 axeSpinningTorque = default;
     [SerializeField] Transform axeParent;
@@ -31,9 +35,11 @@ public class Weapon : MonoBehaviour
     private MeshCollider axeCol;
     private float retrieveTimer = 0.0f;
     private Vector3 curGravity;
+    private LayerMask enemyMask;
 
 
     private bool playerHasAxe = true;
+    private bool isWeaponLoaded = true;
 
 
     private void Awake()
@@ -47,8 +53,13 @@ public class Weapon : MonoBehaviour
 
             this.axeRB.maxAngularVelocity = this.maxAxeSpinningSpeed;
         }
+        else
+        {
+            this.ammoSlot = this.gameObject.GetComponent<Ammo>();
+        }
 
         this.curGravity = Physics.gravity;
+        this.enemyMask = LayerMask.GetMask("Enemy");
     }
 
     private void OnDestroy()
@@ -62,7 +73,7 @@ public class Weapon : MonoBehaviour
         if(this.axeChild != null)
             ProcessAxeBehaviour();
 
-        if (this.shoot.triggered)
+        if (this.shoot.triggered && this.ammoSlot.AmmoAmount > 0)
             Shoot();
     }
 
@@ -112,9 +123,8 @@ public class Weapon : MonoBehaviour
     {
         if (!this.gameObject.CompareTag("Axe"))
         {
-            EmmitRaycast();
-
-            this.muzzleFlash.Play();
+            if (this.isWeaponLoaded)
+                this.StartCoroutine(ShootBullet());
         }
         else
         {
@@ -133,6 +143,24 @@ public class Weapon : MonoBehaviour
         }        
     }
 
+    private IEnumerator ShootBullet()
+    {
+        this.isWeaponLoaded = false;
+
+        EmmitRaycast();
+
+        // Nearby enemies will get provoked if the rifle is shot near them and attack the player.
+        EmmitOverlapSphere();
+
+        this.muzzleFlash.Play();
+
+        this.ammoSlot.SubtractAmmo();
+
+        //TODO: have the yield return depend on the duration of a loading sniper rifle SFX
+        yield return new WaitForSeconds(3.5f);
+
+        this.isWeaponLoaded = true;
+    }
     private void EmmitRaycast()
     {
         RaycastHit hit;
@@ -147,6 +175,19 @@ public class Weapon : MonoBehaviour
             {
                 enemyHealth.SubtractHealth(this.damage);
                 hit.collider.GetComponent<EnemyMover>().SetIsProvoked(true);
+            }
+        }
+    }
+
+    private void EmmitOverlapSphere()
+    {
+        Collider[] enemies = Physics.OverlapSphere(this.gameObject.transform.position, this.shootSoundRadius, this.enemyMask);
+
+        if(enemies.Length > 0)
+        {
+            foreach(Collider item in enemies)
+            {
+                item.gameObject.GetComponent<EnemyMover>().SetIsProvoked(true);
             }
         }
     }
@@ -169,5 +210,11 @@ public class Weapon : MonoBehaviour
     public void OnAxeCollision()
     {
         Physics.gravity = new Vector3(0, this.axeGravityUponLaunch);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(this.gameObject.transform.position, this.shootSoundRadius);
     }
 }

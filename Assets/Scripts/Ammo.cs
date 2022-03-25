@@ -19,11 +19,19 @@ public class Ammo : MonoBehaviour
     {
         return GetAmmoSlot(inAmmoType).ammoAmount;
     }
-    public void AddAmmo(AmmoType inAmmoType, int inAmmoAcquired)
+    public bool AddAmmo(AmmoType inAmmoType, int inAmmoAcquired)
     {
-        if (GetAmmoSlot(inAmmoType).ammoAmount == GetAmmoSlot(inAmmoType).maxAmmoAmount) { return; }
+        if (GetAmmoSlot(inAmmoType).ammoAmount == GetAmmoSlot(inAmmoType).maxAmmoAmount)
+        { 
+            return false;
+        }
+        else
+        {
+            GetAmmoSlot(inAmmoType).ammoAmount += inAmmoAcquired;
+            return true;
+        }
         
-        GetAmmoSlot(inAmmoType).ammoAmount += inAmmoAcquired;
+        
     }
 
     public void SubtractAmmo(AmmoType inAmmoType)

@@ -16,6 +16,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] ParticleSystem muzzleFlash;
     [SerializeField] GameObject bulletImpactSparks;
     private Ammo ammoSlot;
+    [SerializeField] AmmoType ammoType;
     [SerializeField] float shootSoundRadius = default;
 
     [Header("Axe Characteristics")]
@@ -60,6 +61,20 @@ public class Weapon : MonoBehaviour
 
         this.curGravity = Physics.gravity;
         this.enemyMask = LayerMask.GetMask("Enemy");
+    }
+
+    private void OnEnable()
+    {
+        if (!this.isWeaponLoaded)
+            this.StartCoroutine(LoadWeapon());            
+    }
+
+    private IEnumerator LoadWeapon()
+    {
+        // TODO: replay the loading SFX. This avoids abusing weapon switching to override the loading time between shots
+        yield return new WaitForSeconds(3.5f);
+
+        this.isWeaponLoaded = true;
     }
 
     private void OnDestroy()
@@ -123,7 +138,7 @@ public class Weapon : MonoBehaviour
     {
         if (!this.gameObject.CompareTag("Axe"))
         {
-            if (this.isWeaponLoaded && this.ammoSlot.AmmoAmount > 0)
+            if (this.isWeaponLoaded && this.ammoSlot.GetCurrentAmmoAmount(this.ammoType) > 0)
                 this.StartCoroutine(ShootBullet());
         }
         else
@@ -154,7 +169,7 @@ public class Weapon : MonoBehaviour
 
         this.muzzleFlash.Play();
 
-        this.ammoSlot.SubtractAmmo();
+        this.ammoSlot.SubtractAmmo(this.ammoType);
 
         //TODO: have the yield return depend on the duration of a loading sniper rifle SFX
         yield return new WaitForSeconds(3.5f);

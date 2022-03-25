@@ -69,13 +69,13 @@ public class WeaponSwitcher : MonoBehaviour
             {
                 case float i when i < 0:
                     this.currentWeapon--;
-                    if (currentWeapon < 0)
+                    if (this.currentWeapon < 0)
                         this.currentWeapon = 1;
                     break;
 
                 case float i when i > 0:
                     this.currentWeapon++;
-                    if (currentWeapon >= (this.gameObject.transform.childCount - 1))
+                    if (currentWeapon >= this.gameObject.transform.childCount)
                         this.currentWeapon = 0;
                     break;
             }

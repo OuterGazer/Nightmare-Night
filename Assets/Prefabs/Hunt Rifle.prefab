@@ -48,7 +48,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -4950,10 +4950,21 @@ MonoBehaviour:
       m_Flags: 0
     m_Flags: 1
   FPSCamera: {fileID: 0}
+  player: {fileID: 0}
   damage: 1
   range: 100
   muzzleFlash: {fileID: 8079017976816456728}
   bulletImpactSparks: {fileID: 3533772638800352522, guid: db42f8ca5597d0f4d974d6a531bb5503, type: 3}
+  shootSoundRadius: 0
+  axeThrowingForce: {x: 0, y: 0, z: 0}
+  axeSpinningTorque: {x: 0, y: 0, z: 0}
+  axeParent: {fileID: 0}
+  axeChild: {fileID: 0}
+  retrieveDist: 0
+  axeVelocityCap: 0
+  throwThreshold: 0
+  axeGravityUponLaunch: 0
+  maxAxeSpinningSpeed: 0
 --- !u!1 &4926027157123514932
 GameObject:
   m_ObjectHideFlags: 0
@@ -5002,7 +5013,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -9861,7 +9872,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1

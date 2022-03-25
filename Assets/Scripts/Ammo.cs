@@ -4,22 +4,46 @@ using UnityEngine;
 
 public class Ammo : MonoBehaviour
 {
-    [SerializeField] int ammoAmount = default;
-    /// <summary>
-    /// Gets the current ammo amount for this weapon.
-    /// </summary>
-    public int AmmoAmount => this.ammoAmount;
-
-    public void AddAmmo(int inAmmo)
+    [System.Serializable]
+    private class AmmoSlot
     {
-        this.ammoAmount += inAmmo;
+        public AmmoType ammoType;
+        public int ammoAmount;
+        public int maxAmmoAmount;
     }
 
-    public void SubtractAmmo()
-    {
-        this.ammoAmount--;
+    [SerializeField] AmmoSlot[] ammoSlots;
 
-        if (this.ammoAmount <= 0)
-            this.ammoAmount = 0;
+
+    public int GetCurrentAmmoAmount(AmmoType inAmmoType)
+    {
+        return GetAmmoSlot(inAmmoType).ammoAmount;
+    }
+    public void AddAmmo(AmmoType inAmmoType, int inAmmoAcquired)
+    {
+        if (GetAmmoSlot(inAmmoType).ammoAmount == GetAmmoSlot(inAmmoType).maxAmmoAmount) { return; }
+        
+        GetAmmoSlot(inAmmoType).ammoAmount += inAmmoAcquired;
+    }
+
+    public void SubtractAmmo(AmmoType inAmmoType)
+    {
+        int curAmmoAmount = GetAmmoSlot(inAmmoType).ammoAmount--;
+
+        if (curAmmoAmount <= 0)
+            GetAmmoSlot(inAmmoType).ammoAmount = 0;
+    }
+
+    private AmmoSlot GetAmmoSlot(AmmoType ammoType)
+    {
+        foreach(AmmoSlot item in ammoSlots)
+        {
+            if(item.ammoType == ammoType)
+            {
+                return item;
+            }
+        }
+
+        return null;
     }
 }

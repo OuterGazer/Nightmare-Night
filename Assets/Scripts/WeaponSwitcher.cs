@@ -64,17 +64,18 @@ public class WeaponSwitcher : MonoBehaviour
     {
         if (this.scrollWheel.triggered)
         {
+            // Each case include a statement to check if we have reached the first or last weapon and then loop back appropriately
             switch (this.scrollWheel.ReadValue<float>())
             {
                 case float i when i < 0:
                     this.currentWeapon--;
-                    if (currentWeapon <= -1)
+                    if (currentWeapon < 0)
                         this.currentWeapon = 1;
                     break;
 
                 case float i when i > 0:
                     this.currentWeapon++;
-                    if (currentWeapon >= 2)
+                    if (currentWeapon >= (this.gameObject.transform.childCount - 1))
                         this.currentWeapon = 0;
                     break;
             }

@@ -12,6 +12,8 @@ public class EnemyHealth : MonoBehaviour
 
     private int currentHitPoints;
 
+    private bool isDead = false;
+
     private void Start()
     {
         this.currentHitPoints = this.maxHitPoints;
@@ -28,7 +30,10 @@ public class EnemyHealth : MonoBehaviour
 
         if(this.currentHitPoints < 1)
         {
-            ProcessDeath();
+            this.isDead = true;
+
+            if(this.isDead)
+                ProcessDeath();
         }
     }
 

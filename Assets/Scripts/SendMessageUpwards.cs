@@ -14,6 +14,9 @@ public class SendMessageUpwards : MonoBehaviour
 
     public void SetEnemySpeed(float inSpeed)
     {
-        this.enemyMover.SendMessage("SetSpeed", inSpeed);
+        if(inSpeed != 0 && this.gameObject.CompareTag("regularZombie"))
+            this.enemyMover.SendMessage("SetSpeed", 1.0f);
+        else
+            this.enemyMover.SendMessage("SetSpeed", inSpeed);
     }
 }

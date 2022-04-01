@@ -217,6 +217,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: characterMedium 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5332809968238436118, guid: 210e9546bdc305f40a37549ce85ac81e, type: 3}
+      propertyPath: m_TagString
+      value: regularZombie
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 210e9546bdc305f40a37549ce85ac81e, type: 3}
 --- !u!4 &2603655872994396601 stripped
@@ -261,3 +265,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyAttack: {fileID: 657711036}
+  enemyMover: {fileID: 3491587145455371791}

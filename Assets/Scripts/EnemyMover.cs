@@ -19,6 +19,11 @@ public class EnemyMover : MonoBehaviour
     private LayerMask defaultMask;
 
     private bool isPlayerVisible = false;
+    private bool isPlayerAlive = true;
+    public void SetIsPlayerAlive(bool isAlive)
+    {
+        this.isPlayerAlive = isAlive;
+    }
     private bool shouldEnemyEngage = false;
     private bool isMoving = false;
     private bool isProvoked = false;
@@ -46,7 +51,7 @@ public class EnemyMover : MonoBehaviour
     {
         this.distanceToTargetSqr = (this.target.transform.position - this.gameObject.transform.position).sqrMagnitude;
 
-        if (this.isProvoked)
+        if (this.isProvoked && this.isPlayerAlive)
         {
             EngageTarget();
             return;
@@ -55,7 +60,7 @@ public class EnemyMover : MonoBehaviour
         {
             this.shouldEnemyEngage = true;
 
-            if (this.isPlayerVisible)
+            if (this.isPlayerVisible && this.isPlayerAlive)
             {                
                 EngageTarget();
             }

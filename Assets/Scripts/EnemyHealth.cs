@@ -32,9 +32,15 @@ public class EnemyHealth : MonoBehaviour
         {
             this.isDead = true;
 
-            if(this.isDead)
+            if (this.isDead)
+            {
                 ProcessDeath();
+                return;
+            }
+                
         }
+
+        this.gameObject.GetComponent<EnemyMover>().ActivateHitAnimation();
     }
 
     private void ProcessDeath()
@@ -71,6 +77,6 @@ public class EnemyHealth : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.CompareTag("Axe"))
-            ProcessDeath();
+            SubtractHealth(this.currentHitPoints);
     }
 }

@@ -139,6 +139,16 @@ public class EnemyMover : MonoBehaviour
         this.enemyAnim.SetTrigger("die");
     }
 
+    public void ActivateHitAnimation()
+    {
+        this.enemyAnim.SetTrigger("hit");
+    }
+
+    public void SetSpeed(float inSpeed)
+    {
+        this.navMeshAgent.speed = inSpeed;
+    }
+
     private void FaceTarget()
     {
         Vector3 targetDirection = (this.target.position - this.gameObject.transform.position).normalized;

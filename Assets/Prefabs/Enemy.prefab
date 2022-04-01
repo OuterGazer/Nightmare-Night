@@ -143,7 +143,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHitPoints: 5
-  enemyDeathDelay: 0
+  colliderDeactivationDelay: 2.5
+  enemyDeathDelay: 10
 --- !u!114 &657711036
 MonoBehaviour:
   m_ObjectHideFlags: 0

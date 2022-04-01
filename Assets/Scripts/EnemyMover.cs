@@ -129,6 +129,11 @@ public class EnemyMover : MonoBehaviour
         }
     }
 
+    public void ActivateDyingAnimation()
+    {
+        this.enemyAnim.SetTrigger("die");
+    }
+
     private void FaceTarget()
     {
         Vector3 targetDirection = (this.target.position - this.gameObject.transform.position).normalized;

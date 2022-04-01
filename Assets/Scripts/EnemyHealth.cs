@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 [RequireComponent(typeof(EnemyMover))]
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] int maxHitPoints;
-    [SerializeField] float enemyDeathDelay;
+    [SerializeField] float colliderDeactivationDelay = default;
+    [SerializeField] float enemyDeathDelay = default;
 
     private int currentHitPoints;
 
@@ -34,14 +36,29 @@ public class EnemyHealth : MonoBehaviour
     {
         // TODO: Add SFX and possible VFX
 
-        this.gameObject.GetComponent<CapsuleCollider>().enabled = false;
-        this.gameObject.GetComponent<EnemyMover>().enabled = false;
+        EnemyMover enemyMover = DeactivateEnemy();
 
-        this.StartCoroutine(KillEnemy());
+        this.StartCoroutine(KillEnemy(enemyMover));
     }
 
-    private IEnumerator KillEnemy()
+    private EnemyMover DeactivateEnemy()
+    { 
+        EnemyMover enemyMover = this.gameObject.GetComponent<EnemyMover>();
+        enemyMover.enabled = false;
+
+        this.gameObject.GetComponent<NavMeshAgent>().enabled = false;
+
+        return enemyMover;
+    }
+
+    private IEnumerator KillEnemy(EnemyMover enemyMover)
     {
+        enemyMover.ActivateDyingAnimation();
+
+        yield return new WaitForSeconds(this.colliderDeactivationDelay);
+
+        this.gameObject.GetComponent<CapsuleCollider>().enabled = false;
+
         yield return new WaitForSeconds(this.enemyDeathDelay);
         GameObject.Destroy(this.gameObject);
     }

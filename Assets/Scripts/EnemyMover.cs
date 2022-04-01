@@ -29,7 +29,7 @@ public class EnemyMover : MonoBehaviour
 
     private void Awake()
     {
-        this.enemyAnim = this.gameObject.GetComponent<Animator>();
+        this.enemyAnim = this.gameObject.GetComponentInChildren<Animator>();
         this.navMeshAgent = this.gameObject.GetComponent<NavMeshAgent>();
 
         this.defaultMask = LayerMask.GetMask("Default");

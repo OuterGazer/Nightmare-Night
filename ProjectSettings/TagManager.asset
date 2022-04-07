@@ -8,6 +8,7 @@ TagManager:
   - GameOverCanvas
   - Axe
   - Enemy
+  - regularZombie
   layers:
   - Default
   - TransparentFX

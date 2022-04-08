@@ -36,6 +36,7 @@ public class Weapon : MonoBehaviour
     private MeshCollider axeCol;
     private float retrieveTimer = 0.0f;
     private Vector3 curGravity;
+    private Vector3 axeLastPos = Vector3.positiveInfinity;
     private LayerMask enemyMask;
 
 
@@ -98,24 +99,26 @@ public class Weapon : MonoBehaviour
         if (this.retrieveTimer >= this.throwThreshold && this.retrieveTimer <= 0.75f && this.axeRB.isKinematic == false)
         {
             this.axeRB.velocity *= this.axeVelocityCap;
-            this.canRetrieveAxe = true;
+            
         }
         // To make the axe retrievable by the player once it lays on the ground after throwing
         else if (this.retrieveTimer >= 0.75f)
         {
-            if (Mathf.Approximately(this.axeRB.velocity.sqrMagnitude, 0.0f))
+            if (CheckIfAxeIsStill(this.axeChild.transform.localPosition)) // Mathf.Approximately(this.axeRB.velocity.sqrMagnitude, 0.0f
             {
                 Physics.gravity = this.curGravity;
 
                 this.axeRB.isKinematic = true;
                 this.axeCol.isTrigger = true;
 
+                this.canRetrieveAxe = true;
+
                 this.retrieveTimer = 0.0f;
             }
         }
 
         // Retrieve axe when player is close enough
-        if (this.canRetrieveAxe && Mathf.Approximately(this.axeRB.velocity.sqrMagnitude, 0.0f))
+        if (this.canRetrieveAxe) 
         {
             float distToPlayer = (this.player.transform.position - this.axeChild.transform.position).sqrMagnitude;
 
@@ -133,6 +136,18 @@ public class Weapon : MonoBehaviour
         }
         else
             this.retrieveTimer += Time.deltaTime;
+    }
+
+    private bool CheckIfAxeIsStill(Vector3 inPosition)
+    {
+        if (Mathf.Approximately(inPosition.sqrMagnitude, this.axeLastPos.sqrMagnitude))
+        {
+            return true;
+        }            
+
+        this.axeLastPos = inPosition;
+
+        return false;
     }
 
     private void Shoot()
@@ -222,6 +237,7 @@ public class Weapon : MonoBehaviour
 
         this.playerHasAxe = true;
         this.canRetrieveAxe = false;
+        this.axeLastPos = Vector3.positiveInfinity;
     }
 
     public void OnAxeCollision()

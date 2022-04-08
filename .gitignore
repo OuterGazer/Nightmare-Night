@@ -4,6 +4,8 @@
 #
 /[Aa]ssets/Asset Packs/**/
 /[Aa]ssets/Asset Packs/**/*.meta
+/[Aa]ssets/com/**/
+/[Aa]ssets/com/**/*.meta
 
 /[Ll]ibrary/
 /[Tt]emp/

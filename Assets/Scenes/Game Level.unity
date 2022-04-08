@@ -298,11 +298,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &962193471 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6423029436751416955, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
-  m_PrefabInstance: {fileID: 5595340599493510157}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1141493177 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7149069383863893205, guid: dbac8dcddea8ba64aaddceabaf359533, type: 3}
@@ -353,9 +348,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4531ff2a79e8c8c4e9a70e7d5b874e01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toolModeInt: 0
-  erosionTypeInt: 0
-  generatorTypeInt: 0
+  toolModeInt: 1
+  erosionTypeInt: 3
+  generatorTypeInt: 2
   isBrushOn: 0
   isBrushHidden: 0
   isBrushPainting: 0
@@ -368,14 +363,14 @@ MonoBehaviour:
   thermalIterations: 25
   thermalMinSlope: 1
   thermalFalloff: 0.5
-  hydraulicTypeInt: 0
-  hydraulicIterations: 25
+  hydraulicTypeInt: 1
+  hydraulicIterations: 12
   hydraulicMaxSlope: 60
   hydraulicFalloff: 0.5
-  hydraulicRainfall: 0.01
+  hydraulicRainfall: 0.02
   hydraulicEvaporation: 0.5
-  hydraulicSedimentSolubility: 0.01
-  hydraulicSedimentSaturation: 0.1
+  hydraulicSedimentSolubility: 0.06
+  hydraulicSedimentSaturation: 0.15
   hydraulicVelocityRainfall: 0.01
   hydraulicVelocityEvaporation: 0.5
   hydraulicVelocitySedimentSolubility: 0.01
@@ -388,32 +383,37 @@ MonoBehaviour:
   tidalSeaLevel: 50
   tidalRangeAmount: 5
   tidalCliffLimit: 60
-  windIterations: 25
-  windDirection: 0
+  windIterations: 5
+  windDirection: 90
   windForce: 0.5
   windLift: 0.01
   windGravity: 0.5
   windCapacity: 0.01
   windEntropy: 0.1
   windSmoothing: 0.25
-  terrainLayers: []
-  slopeBlendMinAngle: 60
-  slopeBlendMaxAngle: 75
-  heightBlendPoints: []
+  terrainLayers:
+  - {fileID: 8574412962073106934, guid: d6085160d3d948a4ca6fd572407d26a3, type: 2}
+  - {fileID: 8574412962073106934, guid: cfe4e5fd8a66e2d4f9ea951be09ef9d2, type: 2}
+  - {fileID: 8574412962073106934, guid: ae9eb3e72d19bde4db91e42eec7df78f, type: 2}
+  slopeBlendMinAngle: 10
+  slopeBlendMaxAngle: 30
+  heightBlendPoints:
+  - 0.1
+  - 0.3
   gradientStyles: []
   voronoiTypeInt: 0
   voronoiCells: 16
   voronoiFeatures: 1
   voronoiScale: 1
   voronoiBlend: 1
-  diamondSquareDelta: 0.5
-  diamondSquareBlend: 1
-  perlinFrequency: 4
-  perlinAmplitude: 1
-  perlinOctaves: 8
-  perlinBlend: 1
-  smoothBlend: 1
-  smoothIterations: 0
+  diamondSquareDelta: 0.2
+  diamondSquareBlend: 0.5
+  perlinFrequency: 2
+  perlinAmplitude: 0.5
+  perlinOctaves: 9
+  perlinBlend: 0.25
+  smoothBlend: 0.25
+  smoothIterations: 1
   normaliseMin: 0
   normaliseMax: 1
   normaliseBlend: 1
@@ -427,7 +427,7 @@ TerrainCollider:
   m_Material: {fileID: 0}
   m_Enabled: 1
   m_TerrainData: {fileID: 15600000, guid: 29947806026fbb044bd315478fd8c338, type: 2}
-  m_EnableTreeColliders: 1
+  m_EnableTreeColliders: 0
 --- !u!218 &1203041255
 Terrain:
   m_ObjectHideFlags: 0
@@ -737,33 +737,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1065762474970921346, guid: 4083fbee73f386d4aa6ef690bca6fab8, type: 3}
-      propertyPath: virtualCam
-      value: 
-      objectReference: {fileID: 74602486}
-    - target: {fileID: 1065762474970921346, guid: 4083fbee73f386d4aa6ef690bca6fab8, type: 3}
-      propertyPath: sniperRifle
-      value: 
-      objectReference: {fileID: 962193471}
-    - target: {fileID: 1065762474970921346, guid: 4083fbee73f386d4aa6ef690bca6fab8, type: 3}
-      propertyPath: rotSpeedReduction
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 1545330682281080746, guid: 4083fbee73f386d4aa6ef690bca6fab8, type: 3}
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1545330682281080746, guid: 4083fbee73f386d4aa6ef690bca6fab8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -38.97
+      value: 84.28
       objectReference: {fileID: 0}
     - target: {fileID: 1545330682281080746, guid: 4083fbee73f386d4aa6ef690bca6fab8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 7.05
       objectReference: {fileID: 0}
     - target: {fileID: 1545330682281080746, guid: 4083fbee73f386d4aa6ef690bca6fab8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 12.5
+      value: 43.62
       objectReference: {fileID: 0}
     - target: {fileID: 1545330682281080746, guid: 4083fbee73f386d4aa6ef690bca6fab8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -797,22 +785,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerCapsule
       objectReference: {fileID: 0}
-    - target: {fileID: 2177999210036620567, guid: 4083fbee73f386d4aa6ef690bca6fab8, type: 3}
-      propertyPath: RotationSpeed
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 2177999210036620572, guid: 4083fbee73f386d4aa6ef690bca6fab8, type: 3}
-      propertyPath: m_NotificationBehavior
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2177999210036620572, guid: 4083fbee73f386d4aa6ef690bca6fab8, type: 3}
-      propertyPath: m_ActionEvents.Array.data[4].m_ActionId
-      value: 48c83944-5c0e-4b9c-8724-a195f76a0246
-      objectReference: {fileID: 0}
-    - target: {fileID: 2177999210036620572, guid: 4083fbee73f386d4aa6ef690bca6fab8, type: 3}
-      propertyPath: m_ActionEvents.Array.data[4].m_ActionName
-      value: Player/ZoomWeapon[/Mouse/rightButton]
-      objectReference: {fileID: 0}
     - target: {fileID: 7614831184328759717, guid: 4083fbee73f386d4aa6ef690bca6fab8, type: 3}
       propertyPath: weapons
       value: 
@@ -821,20 +793,7 @@ PrefabInstance:
       propertyPath: gameOverCanvas
       value: 
       objectReference: {fileID: 1141493177}
-    - target: {fileID: 8275823797218281440, guid: 4083fbee73f386d4aa6ef690bca6fab8, type: 3}
-      propertyPath: canPush
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8275823797218281440, guid: 4083fbee73f386d4aa6ef690bca6fab8, type: 3}
-      propertyPath: strength
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8275823797218281440, guid: 4083fbee73f386d4aa6ef690bca6fab8, type: 3}
-      propertyPath: pushLayers.m_Bits
-      value: 512
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1065762474970921346, guid: 4083fbee73f386d4aa6ef690bca6fab8, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4083fbee73f386d4aa6ef690bca6fab8, type: 3}
 --- !u!4 &3893294199639930361 stripped
 Transform:
@@ -862,15 +821,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3568555620331360841, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -39.170002
+      value: 84.08
       objectReference: {fileID: 0}
     - target: {fileID: 3568555620331360841, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.375
+      value: 8.425
       objectReference: {fileID: 0}
     - target: {fileID: 3568555620331360841, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 12.5
+      value: 43.62
       objectReference: {fileID: 0}
     - target: {fileID: 3568555620331360841, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -988,15 +947,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -39.170002
+      value: 84.08
       objectReference: {fileID: 0}
     - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.375
+      value: 8.425
       objectReference: {fileID: 0}
     - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 12.5
+      value: 43.62
       objectReference: {fileID: 0}
     - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
       propertyPath: m_LocalRotation.w

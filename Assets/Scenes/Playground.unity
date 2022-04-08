@@ -22462,6 +22462,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerCapsule
       objectReference: {fileID: 0}
+    - target: {fileID: 2177999210036620567, guid: 4083fbee73f386d4aa6ef690bca6fab8, type: 3}
+      propertyPath: RotationSpeed
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 2177999210036620572, guid: 4083fbee73f386d4aa6ef690bca6fab8, type: 3}
       propertyPath: m_NotificationBehavior
       value: 0

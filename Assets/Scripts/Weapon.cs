@@ -41,7 +41,7 @@ public class Weapon : MonoBehaviour
 
     private bool playerHasAxe = true;
     private bool isWeaponLoaded = true;
-
+    private bool canRetrieveAxe = false;
 
     private void Awake()
     {
@@ -98,6 +98,7 @@ public class Weapon : MonoBehaviour
         if (this.retrieveTimer >= this.throwThreshold && this.retrieveTimer <= 0.75f && this.axeRB.isKinematic == false)
         {
             this.axeRB.velocity *= this.axeVelocityCap;
+            this.canRetrieveAxe = true;
         }
         // To make the axe retrievable by the player once it lays on the ground after throwing
         else if (this.retrieveTimer >= 0.75f)
@@ -114,7 +115,7 @@ public class Weapon : MonoBehaviour
         }
 
         // Retrieve axe when player is close enough
-        if (!this.playerHasAxe && Mathf.Approximately(this.axeRB.velocity.sqrMagnitude, 0.0f))
+        if (this.canRetrieveAxe && Mathf.Approximately(this.axeRB.velocity.sqrMagnitude, 0.0f))
         {
             float distToPlayer = (this.player.transform.position - this.axeChild.transform.position).sqrMagnitude;
 
@@ -220,6 +221,7 @@ public class Weapon : MonoBehaviour
         this.axeChild.transform.localRotation = Quaternion.identity;
 
         this.playerHasAxe = true;
+        this.canRetrieveAxe = false;
     }
 
     public void OnAxeCollision()

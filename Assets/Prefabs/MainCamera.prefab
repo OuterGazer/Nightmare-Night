@@ -59,7 +59,7 @@ Camera:
     height: 1
   near clip plane: 0.2
   far clip plane: 500
-  field of view: 40
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -236,7 +236,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 910339212123627860, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.26999995
+      value: 0.372
       objectReference: {fileID: 0}
     - target: {fileID: 910339212123627860, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
       propertyPath: m_LocalPosition.y
@@ -244,7 +244,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 910339212123627860, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.848
+      value: 0.735
       objectReference: {fileID: 0}
     - target: {fileID: 910339212123627860, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
       propertyPath: m_LocalRotation.w
@@ -300,7 +300,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1698224110291820928, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
       propertyPath: axeThrowingForce.z
-      value: 30
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1698224110291820928, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
       propertyPath: axeSpinningTorque.x
@@ -403,7 +403,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2871454615356977952, guid: a0953d8dea92ad44e9b78e08823d7b5b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.26999995
+      value: 0.27
       objectReference: {fileID: 0}
     - target: {fileID: 2871454615356977952, guid: a0953d8dea92ad44e9b78e08823d7b5b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -411,7 +411,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2871454615356977952, guid: a0953d8dea92ad44e9b78e08823d7b5b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.202
+      value: 0.983
       objectReference: {fileID: 0}
     - target: {fileID: 2871454615356977952, guid: a0953d8dea92ad44e9b78e08823d7b5b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -498,6 +498,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualCam: {fileID: 0}
-  normalFOV: 40
-  zoomedFOV: 25
+  normalFOV: 60
+  zoomedFOV: 30
   rotSpeedReduction: 0.5

@@ -31,6 +31,6 @@ public class SceneLoader : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        ReloadScene();
+        LoadNextScene();
     }
 }

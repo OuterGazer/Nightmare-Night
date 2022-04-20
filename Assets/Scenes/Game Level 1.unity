@@ -46159,22 +46159,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerCapsule
       objectReference: {fileID: 0}
-    - target: {fileID: 2555190682011105541, guid: 4083fbee73f386d4aa6ef690bca6fab8, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.42
-      objectReference: {fileID: 0}
-    - target: {fileID: 2555190682011105547, guid: 4083fbee73f386d4aa6ef690bca6fab8, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2555190682011105547, guid: 4083fbee73f386d4aa6ef690bca6fab8, type: 3}
-      propertyPath: m_CastShadows
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2555190682011105547, guid: 4083fbee73f386d4aa6ef690bca6fab8, type: 3}
-      propertyPath: m_ReceiveShadows
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7614831184328759717, guid: 4083fbee73f386d4aa6ef690bca6fab8, type: 3}
       propertyPath: weapons
       value: 
@@ -46209,22 +46193,10 @@ PrefabInstance:
       propertyPath: virtualCam
       value: 
       objectReference: {fileID: 74602486}
-    - target: {fileID: 395490315888776040, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
-      propertyPath: m_CastShadows
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 395490315888776040, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
-      propertyPath: m_ReceiveShadows
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 988156175643618247, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 3893294199639930361}
-    - target: {fileID: 1645475121669446623, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3568555620331360841, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -46272,38 +46244,6 @@ PrefabInstance:
     - target: {fileID: 3568555620331360844, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
       propertyPath: m_Name
       value: MainCamera
-      objectReference: {fileID: 0}
-    - target: {fileID: 7860880363467497833, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
-      propertyPath: m_CastShadows
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7860880363467497833, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
-      propertyPath: m_ReceiveShadows
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7860880363467497835, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
-      propertyPath: m_CastShadows
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7860880363467497835, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
-      propertyPath: m_ReceiveShadows
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7860880363467497837, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
-      propertyPath: m_CastShadows
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7860880363467497837, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
-      propertyPath: m_ReceiveShadows
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7860880363467497839, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
-      propertyPath: m_CastShadows
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7860880363467497839, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
-      propertyPath: m_ReceiveShadows
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
@@ -46472,10 +46412,6 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 8338988565591873055}
-    - target: {fileID: 8762286023885395323, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
-      propertyPath: m_Lens.FieldOfView
-      value: 60
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
 --- !u!4 &7463433331480358642

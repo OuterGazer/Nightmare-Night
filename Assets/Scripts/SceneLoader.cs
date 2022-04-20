@@ -7,9 +7,21 @@ public class SceneLoader : MonoBehaviour
 {
     public void ReloadScene()
     {
-        int curScene = SceneManager.GetActiveScene().buildIndex;
+        int curScene = GetCurrentSceneIndex();
 
         SceneManager.LoadScene(curScene);
+    }    
+
+    public void LoadNextScene()
+    {
+        int curScene = SceneManager.GetActiveScene().buildIndex;
+
+        SceneManager.LoadScene(curScene + 1);
+    }
+
+    private int GetCurrentSceneIndex()
+    {
+        return SceneManager.GetActiveScene().buildIndex;
     }
 
     public void QuitGame()

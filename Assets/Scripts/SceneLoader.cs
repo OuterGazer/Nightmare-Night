@@ -28,4 +28,9 @@ public class SceneLoader : MonoBehaviour
     {
         Application.Quit();
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        ReloadScene();
+    }
 }

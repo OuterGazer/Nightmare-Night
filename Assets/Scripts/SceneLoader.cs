@@ -31,6 +31,7 @@ public class SceneLoader : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        LoadNextScene();
+        if(other.CompareTag("Player"))
+            LoadNextScene();
     }
 }

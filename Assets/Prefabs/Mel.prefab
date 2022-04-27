@@ -600,13 +600,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3491587145455371790}
   - component: {fileID: 3491587145455371776}
-  - component: {fileID: 742018269519083013}
-  - component: {fileID: 3491587145455371778}
-  - component: {fileID: 3491587145455371791}
-  - component: {fileID: 3491587144110906792}
-  - component: {fileID: 657711036}
   m_Layer: 7
-  m_Name: Feral Zombie
+  m_Name: Mel
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -668,86 +663,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &742018269519083013
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3491587145455371781}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.6192041
-  m_Height: 3.757967
-  m_Direction: 1
-  m_Center: {x: 0.007946849, y: 1.9511628, z: -0.015893877}
---- !u!195 &3491587145455371778
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3491587145455371781}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.75
-  m_Speed: 3
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 2.5
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 3.75
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!114 &3491587145455371791
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3491587145455371781}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d2d60dcbd817ef4f8fa66d4faa1a197, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  chaseRange: 12
-  rotationSpeed: 5
-  enemyMaxDisengageTime: 3
---- !u!114 &3491587144110906792
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3491587145455371781}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81f6707848545734fa8d943a7d2c535a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHitPoints: 5
-  colliderDeactivationDelay: 2.5
-  enemyDeathDelay: 10
---- !u!114 &657711036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3491587145455371781}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8df9bee4638ca24ca22a7443dee8d58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 35
 --- !u!1 &3699410166477628359
 GameObject:
   m_ObjectHideFlags: 0
@@ -923,7 +838,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fed1bc59c4c73674982712c23297d3cd, type: 2}
+  - {fileID: 2100000, guid: 9971d303c3ce8464789441775bbbe8fc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -948,7 +863,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300000, guid: b3c7b0a77c85d454aadb4f3d4b9477c8, type: 3}
+  m_Mesh: {fileID: -4910155946660035214, guid: 210e9546bdc305f40a37549ce85ac81e, type: 3}
   m_Bones:
   - {fileID: 1114049536095700005}
   - {fileID: 5945314436515927324}
@@ -1783,10 +1698,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4815271858680379523}
   - component: {fileID: 8217801939019371166}
-  - component: {fileID: 7133825004288066916}
   m_Layer: 0
   m_Name: Root
-  m_TagString: Untagged
+  m_TagString: regularZombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1818,7 +1732,7 @@ Animator:
   m_GameObject: {fileID: 7613687206494744900}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: e4299bf26a09e9049839e1a1b75e562c, type: 3}
-  m_Controller: {fileID: 9100000, guid: ae6d092c0b51dd64c93e2f1fd95b13a6, type: 2}
+  m_Controller: {fileID: 9100000, guid: 50ca967236adec94a9efbf0c9323e81b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1827,20 +1741,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7133825004288066916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7613687206494744900}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6d38fab2cd0e7f479e38d52ef8c3020, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyAttack: {fileID: 657711036}
-  enemyMover: {fileID: 3491587145455371791}
 --- !u!1 &7622450797269363456
 GameObject:
   m_ObjectHideFlags: 0

@@ -246,7 +246,6 @@ GameObject:
   - component: {fileID: 2555190682011105541}
   - component: {fileID: 2555190682011105546}
   - component: {fileID: 2555190682011105547}
-  - component: {fileID: 2555190682011105540}
   m_Layer: 6
   m_Name: Capsule
   m_TagString: Player
@@ -262,7 +261,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2555190682011105542}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.513, y: -0.204, z: 0}
+  m_LocalPosition: {x: -0.513, y: 0.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1545330682281080746}
@@ -317,20 +316,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &2555190682011105540
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2555190682011105542}
-  m_Material: {fileID: 13400000, guid: 046c5a026e11301429ce9bba8fabf61e, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5823107623849137227
 GameObject:
   m_ObjectHideFlags: 0

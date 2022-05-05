@@ -5,32 +5,52 @@ using UnityEngine;
 public class RoomLights : MonoBehaviour
 {
     [SerializeField] Transform[] lights;
+    [SerializeField] Transform referencePoint;
+
+
+    private LightingController lightingController;
+
 
     [SerializeField] private bool areLightsOn;
     public bool AreLightsOn => this.areLightsOn;
-
-    private LightingController lightingController;
+    
 
     private void Awake()
     {
         this.lightingController = GameObject.FindObjectOfType<LightingController>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerExit(Collider other)
     {
+        float distToRefPoint = (other.ClosestPoint(this.referencePoint.position) - this.referencePoint.position).sqrMagnitude;
+
+        Debug.Log(distToRefPoint);
+
         if (other.CompareTag("Player"))
         {
             switch (this.areLightsOn)
             {
                 case true:
-                    this.lightingController.SendMessage("TurnOffTheLights", this.lights);
-                    this.areLightsOn = false;
+                    if(distToRefPoint > 1.0f)
+                        TurnLightsOff();
                     break;
                 case false:
-                    this.lightingController.SendMessage("TurnOnTheLights", this.lights);
-                    this.areLightsOn = true;
+                    if (distToRefPoint < 1.0f)
+                        TurnLightsOn();
                     break;
-            }            
+            }
         }
+    }
+
+    public void TurnLightsOff()
+    {
+        this.lightingController.SendMessage("TurnOffTheLights", this.lights);
+        this.areLightsOn = false;
+    }
+
+    public void TurnLightsOn()
+    {
+        this.lightingController.SendMessage("TurnOnTheLights", this.lights);
+        this.areLightsOn = true;
     }
 }

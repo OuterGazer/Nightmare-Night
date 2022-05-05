@@ -130,7 +130,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1789924410, guid: b7a77782b13c49043a2116114bb84fbb, type: 3}
       propertyPath: m_Lightmapping
-      value: 2
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1789924410, guid: b7a77782b13c49043a2116114bb84fbb, type: 3}
+      propertyPath: m_BounceIntensity
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8594425002775060288, guid: b7a77782b13c49043a2116114bb84fbb, type: 3}
       propertyPath: m_Name

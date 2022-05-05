@@ -24,8 +24,6 @@ public class RoomLights : MonoBehaviour
     {
         float distToRefPoint = (other.ClosestPoint(this.referencePoint.position) - this.referencePoint.position).sqrMagnitude;
 
-        Debug.Log(distToRefPoint);
-
         if (other.CompareTag("Player"))
         {
             switch (this.areLightsOn)
@@ -52,5 +50,15 @@ public class RoomLights : MonoBehaviour
     {
         this.lightingController.SendMessage("TurnOnTheLights", this.lights);
         this.areLightsOn = true;
+    }
+
+    public void ManageRoomLightsManually(bool shouldBeLit)
+    {
+        for (int i = 0; i < lights.Length; i++)
+        {
+            lights[i].gameObject.SetActive(shouldBeLit);
+        }
+
+        this.areLightsOn = shouldBeLit;
     }
 }

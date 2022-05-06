@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -10,6 +12,8 @@ public class PlayerHealth : MonoBehaviour
 
     [SerializeField] GameObject gameOverCanvas;
     [SerializeField] GameObject weapons;
+
+    [SerializeField] TextMeshProUGUI healthText;
 
     private bool isAlive = true;
     public bool IsAlive => this.isAlive;
@@ -21,6 +25,25 @@ public class PlayerHealth : MonoBehaviour
         Cursor.visible = false;
 
         this.curHitPoints = this.maxHitPoints;
+
+        UpdateHealthUI(this.curHitPoints);
+    }
+
+    public void AddHealth(float inHealthPoints)
+    {
+        this.curHitPoints += inHealthPoints;
+
+        if (this.curHitPoints >= 100)
+        {
+            this.curHitPoints = 100;
+        }
+
+        UpdateHealthUI(this.curHitPoints);
+    }
+
+    private void UpdateHealthUI(float curHitPoints)
+    {
+        this.healthText.text = curHitPoints.ToString() + "/100";
     }
 
     public void DealDamage(float inDamage)
@@ -34,6 +57,8 @@ public class PlayerHealth : MonoBehaviour
             if(this.isAlive)
                 ProcessDeath();
         }
+
+        UpdateHealthUI(this.curHitPoints);
     }
 
     private void ProcessDeath()

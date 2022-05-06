@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyMover : MonoBehaviour
 {
-    [SerializeField] Transform target;
+    private Transform target;
     [SerializeField] float chaseRange = 7.0f;
     [SerializeField] float rotationSpeed = default;
     [SerializeField] float enemyMaxDisengageTime = default;
@@ -34,6 +34,8 @@ public class EnemyMover : MonoBehaviour
 
     private void Awake()
     {
+        this.target = GameObject.FindWithTag("Player").transform;
+
         this.enemyAnim = this.gameObject.GetComponentInChildren<Animator>();
         this.navMeshAgent = this.gameObject.GetComponent<NavMeshAgent>();
 

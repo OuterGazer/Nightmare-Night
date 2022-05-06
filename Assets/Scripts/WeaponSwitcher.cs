@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class WeaponSwitcher : MonoBehaviour
 {
@@ -12,6 +13,12 @@ public class WeaponSwitcher : MonoBehaviour
 
     [Header("Misc.")]
     [SerializeField] int currentWeapon = 0;
+
+    [Header("UI Elements")]
+    [SerializeField] GameObject axeCrosshair;
+    [SerializeField] GameObject rifleNormalCrosshair;
+    [SerializeField] GameObject rifleZoomedCrosshair;
+    [SerializeField] TextMeshProUGUI weaponText;
 
     private void Awake()
     {
@@ -102,7 +109,48 @@ public class WeaponSwitcher : MonoBehaviour
                 weapon.gameObject.SetActive(false);
             }
 
-            weaponIndex++;
+            weaponIndex++;            
+        }
+
+        UpdateUI(this.currentWeapon);
+    }
+
+    private void UpdateUI(int weaponIndex)
+    {
+        Debug.Log(weaponIndex);
+        UpdateCrosshair(weaponIndex);
+        UpdateWeaponName(weaponIndex);
+    }
+
+    private void UpdateCrosshair(int weaponIndex)
+    {
+        this.axeCrosshair.SetActive(false);
+        this.rifleNormalCrosshair.SetActive(false);
+        this.rifleZoomedCrosshair.SetActive(false);
+
+        switch (weaponIndex)
+        {
+            case 0:
+                this.axeCrosshair.SetActive(true);
+                break;
+
+            case 1:
+                this.rifleNormalCrosshair.SetActive(true);
+                break;
+        }
+    }
+
+    private void UpdateWeaponName(int weaponIndex)
+    {
+        switch (weaponIndex)
+        {
+            case 0:
+                this.weaponText.text = "Throwing Axe";
+                break;
+
+            case 1:
+                this.weaponText.text = "Hunting Rifle";
+                break;
         }
     }
 }

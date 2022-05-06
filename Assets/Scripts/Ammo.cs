@@ -64,6 +64,6 @@ public class Ammo : MonoBehaviour
 
     private void UpdateAmmoText(int ammoAmount)
     {
-        this.ammoText.text = ammoAmount.ToString();
+        this.ammoText.text = ammoAmount.ToString() + "/5";
     }
 }

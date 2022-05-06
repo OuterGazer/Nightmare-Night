@@ -151,7 +151,8 @@ public class WeaponSwitcher : MonoBehaviour
 
             case 1:
                 this.weaponText.text = "Hunting Rifle";
-                this.ammoText.text = GameObject.FindObjectOfType<Ammo>().GetCurrentAmmoAmount(AmmoType.Bullets).ToString();
+                string curAmmo = GameObject.FindObjectOfType<Ammo>().GetCurrentAmmoAmount(AmmoType.Bullets).ToString();
+                this.ammoText.text = curAmmo + "/5";
                 break;
         }
     }

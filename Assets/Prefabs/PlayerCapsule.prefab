@@ -235,6 +235,7 @@ MonoBehaviour:
   maxHitPoints: 100
   gameOverCanvas: {fileID: 0}
   weapons: {fileID: 0}
+  healthText: {fileID: 0}
 --- !u!1 &2555190682011105542
 GameObject:
   m_ObjectHideFlags: 0

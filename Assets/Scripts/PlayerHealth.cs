@@ -50,7 +50,9 @@ public class PlayerHealth : MonoBehaviour
     {
         this.curHitPoints -= inDamage;
 
-        if(this.curHitPoints <= 0)
+        ApplyHitVisualEffects();
+
+        if (this.curHitPoints <= 0)
         {            
             this.curHitPoints = 0;
 
@@ -80,5 +82,12 @@ public class PlayerHealth : MonoBehaviour
         this.gameOverCanvas.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+    }
+
+    private void ApplyHitVisualEffects()
+    {
+        float effectIntensity = 1 - (this.curHitPoints / this.maxHitPoints);
+
+        GameObject.FindObjectOfType<PlayerHitEffect>().OnPlayerGettingHit(effectIntensity);
     }
 }

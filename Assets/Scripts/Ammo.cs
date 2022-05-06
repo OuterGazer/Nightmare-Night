@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Ammo : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class Ammo : MonoBehaviour
     }
 
     [SerializeField] AmmoSlot[] ammoSlots;
+    [SerializeField] TextMeshProUGUI ammoText;
 
 
     public int GetCurrentAmmoAmount(AmmoType inAmmoType)
@@ -28,6 +30,9 @@ public class Ammo : MonoBehaviour
         else
         {
             GetAmmoSlot(inAmmoType).ammoAmount += inAmmoAcquired;
+
+            UpdateAmmoText(GetAmmoSlot(inAmmoType).ammoAmount);
+
             return true;
         }
         
@@ -40,6 +45,8 @@ public class Ammo : MonoBehaviour
 
         if (curAmmoAmount <= 0)
             GetAmmoSlot(inAmmoType).ammoAmount = 0;
+
+        UpdateAmmoText(GetAmmoSlot(inAmmoType).ammoAmount);
     }
 
     private AmmoSlot GetAmmoSlot(AmmoType ammoType)
@@ -53,5 +60,10 @@ public class Ammo : MonoBehaviour
         }
 
         return null;
+    }
+
+    private void UpdateAmmoText(int ammoAmount)
+    {
+        this.ammoText.text = ammoAmount.ToString();
     }
 }

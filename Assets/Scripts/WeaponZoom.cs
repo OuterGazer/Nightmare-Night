@@ -11,6 +11,9 @@ public class WeaponZoom : MonoBehaviour
     [SerializeField] float zoomedFOV = default;
     [SerializeField] float rotSpeedReduction = default;
 
+    [SerializeField] GameObject normalCrosshair;
+    [SerializeField] GameObject zoomedCrosshair;
+
     private StarterAssetsInputs input;
     private FirstPersonController playerMovement;
     private float curRotSpeed;
@@ -41,6 +44,9 @@ public class WeaponZoom : MonoBehaviour
                 this.curRotSpeed = this.playerMovement.RotationSpeed;
                 this.playerMovement.RotationSpeed *= this.rotSpeedReduction;
 
+                this.normalCrosshair.SetActive(false);
+                this.zoomedCrosshair.SetActive(true);
+
                 this.isZoomedIn = true;
             }
             else
@@ -56,6 +62,9 @@ public class WeaponZoom : MonoBehaviour
     {
         this.virtualCam.m_Lens.FieldOfView = this.normalFOV;
         this.playerMovement.RotationSpeed = this.curRotSpeed;
+
+        this.normalCrosshair.SetActive(true);
+        this.zoomedCrosshair.SetActive(false);
 
         this.isZoomedIn = false;
     }

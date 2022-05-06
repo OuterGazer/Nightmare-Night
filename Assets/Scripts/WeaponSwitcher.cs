@@ -19,6 +19,7 @@ public class WeaponSwitcher : MonoBehaviour
     [SerializeField] GameObject rifleNormalCrosshair;
     [SerializeField] GameObject rifleZoomedCrosshair;
     [SerializeField] TextMeshProUGUI weaponText;
+    [SerializeField] TextMeshProUGUI ammoText;
 
     private void Awake()
     {
@@ -117,9 +118,8 @@ public class WeaponSwitcher : MonoBehaviour
 
     private void UpdateUI(int weaponIndex)
     {
-        Debug.Log(weaponIndex);
         UpdateCrosshair(weaponIndex);
-        UpdateWeaponName(weaponIndex);
+        UpdateWeaponNameAndAmmo(weaponIndex);
     }
 
     private void UpdateCrosshair(int weaponIndex)
@@ -140,16 +140,18 @@ public class WeaponSwitcher : MonoBehaviour
         }
     }
 
-    private void UpdateWeaponName(int weaponIndex)
+    private void UpdateWeaponNameAndAmmo(int weaponIndex)
     {
         switch (weaponIndex)
         {
             case 0:
                 this.weaponText.text = "Throwing Axe";
+                this.ammoText.text = "";
                 break;
 
             case 1:
                 this.weaponText.text = "Hunting Rifle";
+                this.ammoText.text = GameObject.FindObjectOfType<Ammo>().GetCurrentAmmoAmount(AmmoType.Bullets).ToString();
                 break;
         }
     }

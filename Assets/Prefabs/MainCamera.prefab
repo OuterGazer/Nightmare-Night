@@ -223,6 +223,10 @@ MonoBehaviour:
       m_Flags: 0
     m_Flags: 0
   currentWeapon: 1
+  axeCrosshair: {fileID: 0}
+  rifleNormalCrosshair: {fileID: 0}
+  rifleZoomedCrosshair: {fileID: 0}
+  weaponText: {fileID: 0}
 --- !u!1001 &1884737867468114503
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -541,3 +545,5 @@ MonoBehaviour:
   normalFOV: 60
   zoomedFOV: 30
   rotSpeedReduction: 0.5
+  normalCrosshair: {fileID: 0}
+  zoomedCrosshair: {fileID: 0}

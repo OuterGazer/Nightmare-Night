@@ -36,7 +36,7 @@ public class SceneLoader : MonoBehaviour
         {
             CheckpointTrigger checkpointTrigger = GameObject.FindObjectOfType<CheckpointTrigger>();
             if (checkpointTrigger != null)
-                GameObject.Destroy(checkpointTrigger);
+                GameObject.Destroy(checkpointTrigger.gameObject);
         }
 
         SceneManager.LoadScene(curScene + 1);

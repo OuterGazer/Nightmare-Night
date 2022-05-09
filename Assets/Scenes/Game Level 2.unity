@@ -7521,9 +7521,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 475530488}
     m_Modifications:
+    - target: {fileID: 3519231632321649663, guid: 2b90710efefe9b241a2d71f15a5bb234, type: 3}
+      propertyPath: m_MaxParticleSize
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 3519231632321649663, guid: 2b90710efefe9b241a2d71f15a5bb234, type: 3}
+      propertyPath: m_NormalDirection
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4844087701227826631, guid: 2b90710efefe9b241a2d71f15a5bb234, type: 3}
       propertyPath: m_Name
       value: Health Potion
+      objectReference: {fileID: 0}
+    - target: {fileID: 5690353539441002425, guid: 2b90710efefe9b241a2d71f15a5bb234, type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5690353539441002425, guid: 2b90710efefe9b241a2d71f15a5bb234, type: 3}
+      propertyPath: ShapeModule.m_Scale.y
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5829567348420334541, guid: 2b90710efefe9b241a2d71f15a5bb234, type: 3}
       propertyPath: m_RootOrder
@@ -11125,6 +11141,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfa8a29b3e3899442955f30e16c01520, type: 3}
+--- !u!1 &461238468 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 542726458946774066, guid: dbac8dcddea8ba64aaddceabaf359533, type: 3}
+  m_PrefabInstance: {fileID: 246966100}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &462330360
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22016,6 +22037,17 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2553893964485071052, guid: e8f8284ac51e17f4c85554e447c0726a, type: 3}
+--- !u!114 &888936776 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 207561333, guid: dbac8dcddea8ba64aaddceabaf359533, type: 3}
+  m_PrefabInstance: {fileID: 246966100}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &896589372 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 986da67aaf3a77d488228e7122dca9c6, type: 3}
@@ -30116,6 +30148,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfa8a29b3e3899442955f30e16c01520, type: 3}
+--- !u!114 &1215544348 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1416035700, guid: dbac8dcddea8ba64aaddceabaf359533, type: 3}
+  m_PrefabInstance: {fileID: 246966100}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1216162118 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 84ffedd62ab8d024ba0beb9ad6fb5405, type: 3}
@@ -38926,6 +38969,11 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -8446744759580408319, guid: 8b5acb0bb905cd647a382db76821f3f8, type: 3}
+--- !u!1 &1607049650 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7149069384561530914, guid: dbac8dcddea8ba64aaddceabaf359533, type: 3}
+  m_PrefabInstance: {fileID: 246966100}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1611995292
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45102,6 +45150,17 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -8907757473011522176, guid: 960d97a9e2bc9014bbd93e22c833d52a, type: 3}
+--- !u!114 &1864207462 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2028780450, guid: dbac8dcddea8ba64aaddceabaf359533, type: 3}
+  m_PrefabInstance: {fileID: 246966100}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1869608317
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48096,6 +48155,11 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 8383869948629564775, guid: aca64834cbb3fb24d9660cc4f71270a3, type: 3}
+--- !u!1 &1982296386 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4952273886766241346, guid: dbac8dcddea8ba64aaddceabaf359533, type: 3}
+  m_PrefabInstance: {fileID: 246966100}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1983807665
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52818,6 +52882,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 60889540441713532}
     - target: {fileID: 7614831184328759717, guid: 4083fbee73f386d4aa6ef690bca6fab8, type: 3}
+      propertyPath: healthText
+      value: 
+      objectReference: {fileID: 1215544348}
+    - target: {fileID: 7614831184328759717, guid: 4083fbee73f386d4aa6ef690bca6fab8, type: 3}
       propertyPath: gameOverCanvas
       value: 
       objectReference: {fileID: 1418472776}
@@ -52900,10 +52968,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 962193474, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
+      propertyPath: ammoText
+      value: 
+      objectReference: {fileID: 1864207462}
     - target: {fileID: 962193475, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
       propertyPath: virtualCam
       value: 
       objectReference: {fileID: 74602486}
+    - target: {fileID: 962193475, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
+      propertyPath: normalCrosshair
+      value: 
+      objectReference: {fileID: 461238468}
+    - target: {fileID: 962193475, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
+      propertyPath: zoomedCrosshair
+      value: 
+      objectReference: {fileID: 1607049650}
+    - target: {fileID: 60889540441713534, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
+      propertyPath: ammoText
+      value: 
+      objectReference: {fileID: 1864207462}
+    - target: {fileID: 60889540441713534, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
+      propertyPath: weaponText
+      value: 
+      objectReference: {fileID: 888936776}
+    - target: {fileID: 60889540441713534, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
+      propertyPath: axeCrosshair
+      value: 
+      objectReference: {fileID: 1982296386}
+    - target: {fileID: 60889540441713534, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
+      propertyPath: rifleNormalCrosshair
+      value: 
+      objectReference: {fileID: 461238468}
+    - target: {fileID: 60889540441713534, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
+      propertyPath: rifleZoomedCrosshair
+      value: 
+      objectReference: {fileID: 1607049650}
     - target: {fileID: 988156175643618247, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
       propertyPath: player
       value: 

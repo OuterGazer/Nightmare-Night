@@ -10,11 +10,12 @@ public class HealthPickup : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<PlayerHealth>().AddHealth(this.amountToHeal);
+            if (other.GetComponent<PlayerHealth>().AddHealth(this.amountToHeal))
+            {
+                // TODO: add SFX
 
-            // TODO: add SFX
-
-            GameObject.Destroy(this.gameObject);
+                GameObject.Destroy(this.gameObject);
+            }
         }
     }
 }

@@ -29,16 +29,20 @@ public class PlayerHealth : MonoBehaviour
         UpdateHealthUI(this.curHitPoints);
     }
 
-    public void AddHealth(float inHealthPoints)
+    public bool AddHealth(float inHealthPoints)
     {
-        this.curHitPoints += inHealthPoints;
-
-        if (this.curHitPoints >= 100)
+        if (this.curHitPoints < 100)
         {
+            //this.curHitPoints += inHealthPoints;
+
             this.curHitPoints = 100;
+
+            UpdateHealthUI(this.curHitPoints);
+
+            return true;
         }
 
-        UpdateHealthUI(this.curHitPoints);
+        return false;
     }
 
     private void UpdateHealthUI(float curHitPoints)

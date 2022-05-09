@@ -3737,7 +3737,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &76380390
 Transform:
   m_ObjectHideFlags: 0
@@ -38293,6 +38293,7 @@ MonoBehaviour:
   - {fileID: 1098238451}
   - {fileID: 635244128}
   level2: {fileID: 0}
+  lightingSettings: {fileID: 0}
 --- !u!4 &786025808
 Transform:
   m_ObjectHideFlags: 0
@@ -69008,6 +69009,7 @@ MonoBehaviour:
   - {fileID: 1098238451}
   - {fileID: 635244128}
   level2: {fileID: 76380389}
+  lightingSettings: {fileID: 4890085278179872738, guid: 39e84c8546e832941880a061bc4d73ab, type: 2}
 --- !u!65 &1394934728
 BoxCollider:
   m_ObjectHideFlags: 0

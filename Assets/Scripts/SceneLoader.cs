@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
     [SerializeField] GameObject[] level1;
     [SerializeField] GameObject level2;
+
+    [SerializeField] LightingSettings lightingSettings;
 
     public void ReloadScene()
     {
@@ -42,6 +45,16 @@ public class SceneLoader : MonoBehaviour
                     GameObject.Destroy(item);
 
                 this.level2.SetActive(true);
+
+                Lightmapping.lightingSettings = this.lightingSettings;
+
+                RenderSettings.fog = false;
+                RenderSettings.skybox = null;
+                RenderSettings.sun = null;
+                RenderSettings.reflectionIntensity = 1.0f;
+                RenderSettings.reflectionBounces = 5;
+                //RenderSettings.ambientSkyColor
+                RenderSettings.ambientLight = new Color32(29, 28, 25, 255);
             }
             else if(this.gameObject.CompareTag("EntryLevel2") && this.level2.activeInHierarchy)
             {

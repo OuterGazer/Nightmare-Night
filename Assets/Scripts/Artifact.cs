@@ -8,6 +8,8 @@ public class Artifact : MonoBehaviour
 
     [SerializeField] EnemyHealth[] bossRoomEnemies;
 
+    [SerializeField] GameObject exitDoor;
+
     private bool isBossDead = false;
 
     public void KillBoss(Vector3 hitPoint)
@@ -27,6 +29,8 @@ public class Artifact : MonoBehaviour
             item.ProcessDeath();
 
         this.isBossDead = true;
+
+        this.exitDoor.transform.Rotate(Vector3.up, -105.0f);
     }
 
     private void OnCollisionEnter(Collision collision)

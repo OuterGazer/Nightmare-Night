@@ -9,6 +9,7 @@ TagManager:
   - Axe
   - Enemy
   - regularZombie
+  - EntryLevel2
   layers:
   - Default
   - TransparentFX

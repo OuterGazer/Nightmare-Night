@@ -53245,7 +53245,7 @@ PrefabInstance:
     - target: {fileID: 1301406289246029561, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
       propertyPath: sharedProfile
       value: 
-      objectReference: {fileID: 11400000, guid: 77c9c50398a59d445a231b94cf9be2b7, type: 2}
+      objectReference: {fileID: 11400000, guid: 8899d95e4a632744d8519ca0da4fdbb0, type: 2}
     - target: {fileID: 8762286023885395077, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
       propertyPath: m_Name
       value: PlayerFollowCamera

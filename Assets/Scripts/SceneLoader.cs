@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
+    [SerializeField] GameObject[] level1;
+    [SerializeField] GameObject level2;
+
     public void ReloadScene()
     {
         int curScene = GetCurrentSceneIndex();
@@ -31,7 +34,21 @@ public class SceneLoader : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
-            LoadNextScene();
+        if (other.CompareTag("Player"))
+        {
+            if (this.gameObject.CompareTag("EntryLevel2") && !this.level2.activeInHierarchy)
+            {
+                foreach (GameObject item in this.level1)
+                    GameObject.Destroy(item);
+
+                this.level2.SetActive(true);
+            }
+            else if(this.gameObject.CompareTag("EntryLevel2") && this.level2.activeInHierarchy)
+            {
+                return;
+            }
+            else
+                LoadNextScene();
+        }            
     }
 }

@@ -28,4 +28,10 @@ public class Artifact : MonoBehaviour
 
         this.isBossDead = true;
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Axe"))
+            KillBoss(collision.impulse);
+    }
 }

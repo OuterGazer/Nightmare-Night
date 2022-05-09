@@ -10,6 +10,14 @@ public class BossRoomLights : MonoBehaviour
 
     [SerializeField] bool areLightsOn;
 
+    private void Awake()
+    {
+        if (GameObject.FindObjectOfType<CheckpointTrigger>().IsCheckpointActivated)
+        {
+            ManageRoomLightsManually(true);
+        }
+    }
+
     private void OnTriggerExit(Collider other)
     {
         float distToRefPoint = (other.ClosestPoint(this.referencePoint.position) - this.referencePoint.position).sqrMagnitude;

@@ -31,7 +31,8 @@ public class Ammo : MonoBehaviour
         {
             GetAmmoSlot(inAmmoType).ammoAmount += inAmmoAcquired;
 
-            UpdateAmmoText(GetAmmoSlot(inAmmoType).ammoAmount);
+            if(this.ammoText.text != "")
+                UpdateAmmoText(GetAmmoSlot(inAmmoType).ammoAmount);
 
             return true;
         }

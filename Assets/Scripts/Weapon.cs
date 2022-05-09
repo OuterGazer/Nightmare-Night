@@ -30,6 +30,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] float throwThreshold = default;
     [SerializeField] float axeGravityUponLaunch = default;
     [SerializeField] float maxAxeSpinningSpeed = default;
+    [SerializeField] GameObject pickupSparks;
 
 
     private Rigidbody axeRB;
@@ -54,10 +55,12 @@ public class Weapon : MonoBehaviour
             this.axeCol = this.gameObject.GetComponentInChildren<MeshCollider>();
 
             this.axeRB.maxAngularVelocity = this.maxAxeSpinningSpeed;
+
+            this.pickupSparks.SetActive(false);
         }
         else
         {
-            this.ammoSlot = this.gameObject.GetComponent<Ammo>();
+            this.ammoSlot = this.gameObject.GetComponentInParent<Ammo>();
         }
 
         this.curGravity = Physics.gravity;
@@ -112,6 +115,7 @@ public class Weapon : MonoBehaviour
                 this.axeCol.isTrigger = true;
 
                 this.canRetrieveAxe = true;
+                this.pickupSparks.SetActive(true);
 
                 this.retrieveTimer = 0.0f;
             }
@@ -234,6 +238,8 @@ public class Weapon : MonoBehaviour
 
         this.axeChild.transform.localPosition = Vector3.zero;
         this.axeChild.transform.localRotation = Quaternion.identity;
+
+        this.pickupSparks.SetActive(false);
 
         this.playerHasAxe = true;
         this.canRetrieveAxe = false;

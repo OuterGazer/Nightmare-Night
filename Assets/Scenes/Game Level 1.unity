@@ -12418,6 +12418,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 676265203}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &677043956 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1416035700, guid: dbac8dcddea8ba64aaddceabaf359533, type: 3}
+  m_PrefabInstance: {fileID: 7149069385005150572}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &679637874
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47608,6 +47619,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 60889540441713532}
     - target: {fileID: 7614831184328759717, guid: 4083fbee73f386d4aa6ef690bca6fab8, type: 3}
+      propertyPath: healthText
+      value: 
+      objectReference: {fileID: 677043956}
+    - target: {fileID: 7614831184328759717, guid: 4083fbee73f386d4aa6ef690bca6fab8, type: 3}
       propertyPath: gameOverCanvas
       value: 
       objectReference: {fileID: 1141493177}
@@ -47637,6 +47652,34 @@ PrefabInstance:
       propertyPath: virtualCam
       value: 
       objectReference: {fileID: 74602486}
+    - target: {fileID: 962193475, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
+      propertyPath: normalCrosshair
+      value: 
+      objectReference: {fileID: 7149069385005150576}
+    - target: {fileID: 962193475, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
+      propertyPath: zoomedCrosshair
+      value: 
+      objectReference: {fileID: 7149069385005150575}
+    - target: {fileID: 60889540441713534, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
+      propertyPath: ammoText
+      value: 
+      objectReference: {fileID: 7149069385005150574}
+    - target: {fileID: 60889540441713534, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
+      propertyPath: weaponText
+      value: 
+      objectReference: {fileID: 7149069385005150573}
+    - target: {fileID: 60889540441713534, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
+      propertyPath: axeCrosshair
+      value: 
+      objectReference: {fileID: 7149069385005150577}
+    - target: {fileID: 60889540441713534, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
+      propertyPath: rifleNormalCrosshair
+      value: 
+      objectReference: {fileID: 7149069385005150576}
+    - target: {fileID: 60889540441713534, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
+      propertyPath: rifleZoomedCrosshair
+      value: 
+      objectReference: {fileID: 7149069385005150575}
     - target: {fileID: 988156175643618247, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
       propertyPath: player
       value: 
@@ -47689,6 +47732,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainCamera
       objectReference: {fileID: 0}
+    - target: {fileID: 4832981299469176199, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
+      propertyPath: ammoText
+      value: 
+      objectReference: {fileID: 7149069385005150574}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97a6f18acc4e3924598a2b57fcedf59b, type: 3}
 --- !u!33 &6389937245731517288
@@ -47764,6 +47811,43 @@ PrefabInstance:
       objectReference: {fileID: 786025807}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbac8dcddea8ba64aaddceabaf359533, type: 3}
+--- !u!114 &7149069385005150573 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 207561333, guid: dbac8dcddea8ba64aaddceabaf359533, type: 3}
+  m_PrefabInstance: {fileID: 7149069385005150572}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7149069385005150574 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2028780450, guid: dbac8dcddea8ba64aaddceabaf359533, type: 3}
+  m_PrefabInstance: {fileID: 7149069385005150572}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &7149069385005150575 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7149069384561530914, guid: dbac8dcddea8ba64aaddceabaf359533, type: 3}
+  m_PrefabInstance: {fileID: 7149069385005150572}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7149069385005150576 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 542726458946774066, guid: dbac8dcddea8ba64aaddceabaf359533, type: 3}
+  m_PrefabInstance: {fileID: 7149069385005150572}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7149069385005150577 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4952273886766241346, guid: dbac8dcddea8ba64aaddceabaf359533, type: 3}
+  m_PrefabInstance: {fileID: 7149069385005150572}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7226471076264552055
 GameObject:
   m_ObjectHideFlags: 0

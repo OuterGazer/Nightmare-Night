@@ -129,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5584171170299735920}
   - component: {fileID: 60889540441713534}
+  - component: {fileID: 4832981299469176199}
   m_Layer: 0
   m_Name: Weapons
   m_TagString: Untagged
@@ -227,6 +228,24 @@ MonoBehaviour:
   rifleNormalCrosshair: {fileID: 0}
   rifleZoomedCrosshair: {fileID: 0}
   weaponText: {fileID: 0}
+  ammoText: {fileID: 0}
+--- !u!114 &4832981299469176199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5584171170299735921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b9703cc59385de4dad090f46877c218, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ammoSlots:
+  - ammoType: 1
+    ammoAmount: 5
+    maxAmmoAmount: 5
+  ammoText: {fileID: 0}
 --- !u!1001 &1884737867468114503
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -513,22 +532,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2871454615356977952, guid: a0953d8dea92ad44e9b78e08823d7b5b, type: 3}
   m_PrefabInstance: {fileID: 9127246899554766231}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &962193474
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6423029436751416955}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b9703cc59385de4dad090f46877c218, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ammoSlots:
-  - ammoType: 1
-    ammoAmount: 5
-    maxAmmoAmount: 5
 --- !u!114 &962193475
 MonoBehaviour:
   m_ObjectHideFlags: 0

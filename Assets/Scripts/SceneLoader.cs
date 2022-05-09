@@ -11,6 +11,16 @@ public class SceneLoader : MonoBehaviour
 
     [SerializeField] LightingSettings lightingSettings;
 
+    private void Awake()
+    {
+        if(GetCurrentSceneIndex() == 0)
+        {
+            CheckpointTrigger checkpointTrigger = GameObject.FindObjectOfType<CheckpointTrigger>();
+            if (checkpointTrigger.IsCheckpointActivated)
+                TransitionfromLevel1ToLevel2();
+        }        
+    }
+
     public void ReloadScene()
     {
         int curScene = GetCurrentSceneIndex();
@@ -21,6 +31,13 @@ public class SceneLoader : MonoBehaviour
     public void LoadNextScene()
     {
         int curScene = SceneManager.GetActiveScene().buildIndex;
+
+        if(curScene == 0)
+        {
+            CheckpointTrigger checkpointTrigger = GameObject.FindObjectOfType<CheckpointTrigger>();
+            if (checkpointTrigger != null)
+                GameObject.Destroy(checkpointTrigger);
+        }
 
         SceneManager.LoadScene(curScene + 1);
     }
@@ -41,20 +58,7 @@ public class SceneLoader : MonoBehaviour
         {
             if (this.gameObject.CompareTag("EntryLevel2") && !this.level2.activeInHierarchy)
             {
-                foreach (GameObject item in this.level1)
-                    GameObject.Destroy(item);
-
-                this.level2.SetActive(true);
-
-                Lightmapping.lightingSettings = this.lightingSettings;
-
-                RenderSettings.fog = false;
-                RenderSettings.skybox = null;
-                RenderSettings.sun = null;
-                RenderSettings.reflectionIntensity = 1.0f;
-                RenderSettings.reflectionBounces = 5;
-                //RenderSettings.ambientSkyColor
-                RenderSettings.ambientLight = new Color32(29, 28, 25, 255);
+                TransitionfromLevel1ToLevel2();
             }
             else if(this.gameObject.CompareTag("EntryLevel2") && this.level2.activeInHierarchy)
             {
@@ -63,5 +67,22 @@ public class SceneLoader : MonoBehaviour
             else
                 LoadNextScene();
         }            
+    }
+
+    private void TransitionfromLevel1ToLevel2()
+    {
+        foreach (GameObject item in this.level1)
+            GameObject.Destroy(item);
+
+        this.level2.SetActive(true);
+
+        Lightmapping.lightingSettings = this.lightingSettings;
+
+        RenderSettings.fog = false;
+        RenderSettings.skybox = null;
+        RenderSettings.sun = null;
+        RenderSettings.reflectionIntensity = 1.0f;
+        RenderSettings.reflectionBounces = 5;
+        RenderSettings.ambientLight = new Color32(29, 28, 25, 255);
     }
 }

@@ -27,6 +27,10 @@ public class PlayerHealth : MonoBehaviour
         this.curHitPoints = this.maxHitPoints;
 
         UpdateHealthUI(this.curHitPoints);
+
+        CheckpointTrigger checkpointTrigger = GameObject.FindObjectOfType<CheckpointTrigger>();
+        if (checkpointTrigger.IsCheckpointActivated)
+            this.gameObject.transform.position = checkpointTrigger.transform.position;
     }
 
     public bool AddHealth(float inHealthPoints)

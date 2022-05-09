@@ -54686,19 +54686,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -1935980745479762199, guid: 51d6516bc60e52542b42ac035c2a75f2, type: 3}
---- !u!65 &1036757408
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1036757406}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.3133353, y: 0.48759988, z: 0.90586615}
-  m_Center: {x: 0, y: 0.24379994, z: 0}
 --- !u!114 &1036757410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54711,6 +54698,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9135769af6a10bb4c8e645fb8a7b74f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isZombie1Killed: 0
+  isZombie2Killed: 0
 --- !u!1001 &1037146768
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57001,6 +56990,23 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 8383869948629564775, guid: aca64834cbb3fb24d9660cc4f71270a3, type: 3}
+--- !u!1 &1089838924 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3491587145455371781, guid: e73df06f4310f41428e9638c5b725ffe, type: 3}
+  m_PrefabInstance: {fileID: 1318605270}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1089838931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1089838924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ba10868b122f7549a5c2db9fd907526, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1090989330
 GameObject:
   m_ObjectHideFlags: 0
@@ -75195,6 +75201,23 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2553893964485071052, guid: e8f8284ac51e17f4c85554e447c0726a, type: 3}
+--- !u!1 &1551956215 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3491587145455371781, guid: e73df06f4310f41428e9638c5b725ffe, type: 3}
+  m_PrefabInstance: {fileID: 2056123768}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1551956222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551956215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ba10868b122f7549a5c2db9fd907526, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1553774530
 PrefabInstance:
   m_ObjectHideFlags: 0

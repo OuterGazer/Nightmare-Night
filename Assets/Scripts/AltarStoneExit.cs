@@ -4,17 +4,11 @@ using UnityEngine;
 
 public class AltarStoneExit : MonoBehaviour
 {
-    private bool isExitActivated = false;
-
-    private void OnTriggerEnter(Collider other)
+    public bool isZombie1Killed = false;
+    public bool isZombie2Killed = false;
+    public void OnZombieKilled()
     {
-        if (this.isExitActivated) { return; }
-
-        if (other.CompareTag("Player") )
-        {
+        if(this.isZombie1Killed && this.isZombie2Killed)
             GameObject.FindObjectOfType<LevelTransition>().EndLevelTrigger.Invoke();
-
-            this.isExitActivated = true;
-        }
     }
 }

@@ -48,6 +48,10 @@ public class EnemyHealth : MonoBehaviour
         // TODO: Add SFX and possible VFX
 
         EnemyMover enemyMover = DeactivateEnemy();
+        
+        ZombieTrigger zombieTrigger = this.gameObject.GetComponent<ZombieTrigger>();
+        if (zombieTrigger != null)
+            zombieTrigger.OnEnemyDeath();
 
         this.StartCoroutine(KillEnemy(enemyMover));
     }

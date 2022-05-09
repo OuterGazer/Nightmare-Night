@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - regularZombie
   - EntryLevel2
+  - Artifact
   layers:
   - Default
   - TransparentFX

@@ -203,14 +203,19 @@ public class Weapon : MonoBehaviour
 
         if (isHit)
         {
-            PlayHitParticle(hit);            
+            PlayHitParticle(hit);
 
-            EnemyHealth enemyHealth = hit.collider.GetComponent<EnemyHealth>();
-            if (enemyHealth != null)
+            if (hit.collider.CompareTag("Enemy"))
             {
-                enemyHealth.SubtractHealth(this.damage);
-                hit.collider.GetComponent<EnemyMover>().SetIsProvoked(true);
+                EnemyHealth enemyHealth = hit.collider.GetComponent<EnemyHealth>();
+                if (enemyHealth != null)
+                {
+                    enemyHealth.SubtractHealth(this.damage);
+                    hit.collider.GetComponent<EnemyMover>().SetIsProvoked(true);
+                }
             }
+            else if (hit.collider.CompareTag("Artifact"))
+                hit.collider.GetComponent<Artifact>().KillBoss(hit.point);
         }
     }
 

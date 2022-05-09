@@ -26,6 +26,12 @@ public class EnemyHealth : MonoBehaviour
 
     public void SubtractHealth(int inHealth)
     {
+        if (this.gameObject.name.Equals("Boss"))
+        {
+            this.gameObject.GetComponent<EnemyMover>().ActivateHitAnimation();
+            return; 
+        }
+
         this.currentHitPoints -= inHealth;
 
         if(this.currentHitPoints < 1)
@@ -43,7 +49,7 @@ public class EnemyHealth : MonoBehaviour
         this.gameObject.GetComponent<EnemyMover>().ActivateHitAnimation();
     }
 
-    private void ProcessDeath()
+    public void ProcessDeath()
     {
         // TODO: Add SFX and possible VFX
 

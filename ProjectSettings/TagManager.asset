@@ -11,6 +11,8 @@ TagManager:
   - regularZombie
   - EntryLevel2
   - Artifact
+  - MelAxe
+  - RobAxe
   layers:
   - Default
   - TransparentFX

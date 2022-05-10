@@ -11,8 +11,12 @@ public class WeaponSwitcher : MonoBehaviour
     [SerializeField] InputAction weaponSelect;
     [SerializeField] InputAction scrollWheel;
 
-    [Header("Misc.")]
-    [SerializeField] int currentWeapon = 0;
+    private int currentWeapon;
+    public int CurrentWeapon
+    {
+        get { return this.currentWeapon; }
+        set { if(value == 0 || value == 1) { this.currentWeapon = value; } }
+    }
 
     [Header("UI Elements")]
     [SerializeField] GameObject axeCrosshair;
@@ -20,6 +24,19 @@ public class WeaponSwitcher : MonoBehaviour
     [SerializeField] GameObject rifleZoomedCrosshair;
     [SerializeField] TextMeshProUGUI weaponText;
     [SerializeField] TextMeshProUGUI ammoText;
+
+    private bool hasAxe = false;
+    public bool HasAxe
+    {
+        get { return this.hasAxe; }
+        set { this.hasAxe = value; }
+    }
+    private bool hasRifle = false;
+    public bool HasRifle
+    {
+        get { return this.hasRifle; }
+        set { this.hasRifle = value; }
+    }
 
     private void Awake()
     {
@@ -58,10 +75,12 @@ public class WeaponSwitcher : MonoBehaviour
             switch (this.weaponSelect.activeControl.displayName)
             {
                 case string i when i.Contains("1"):
+                    if (!this.hasAxe) { return; }
                     this.currentWeapon = 0;
                     break;
 
                 case string i when i.Contains("2"):
+                    if (!this.hasRifle) { return; }
                     this.currentWeapon = 1;
                     break;
             }
@@ -78,16 +97,29 @@ public class WeaponSwitcher : MonoBehaviour
                 case float i when i < 0:
                     this.currentWeapon--;
                     if (this.currentWeapon < 0)
+                    {
                         this.currentWeapon = 1;
+                    }
                     break;
 
                 case float i when i > 0:
                     this.currentWeapon++;
                     if (currentWeapon >= this.gameObject.transform.childCount)
+                    {
                         this.currentWeapon = 0;
+                    }
                     break;
             }
+
+            CheckIfPlayerHasWeapon();
         }
+    }
+
+    private void CheckIfPlayerHasWeapon()
+    {
+        if ((this.currentWeapon == 1) && (!this.hasRifle))
+            this.currentWeapon = 0;
+            
     }
 
     private void SetWeaponActive()

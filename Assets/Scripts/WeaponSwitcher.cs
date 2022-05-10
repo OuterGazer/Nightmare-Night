@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class WeaponSwitcher : MonoBehaviour
 {
@@ -42,6 +43,13 @@ public class WeaponSwitcher : MonoBehaviour
     {
         this.weaponSelect.Enable();
         this.scrollWheel.Enable();
+
+        if(SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            this.hasAxe = true;
+            this.hasRifle = true;
+            this.currentWeapon = 1;
+        }
     }
 
     private void OnDestroy()

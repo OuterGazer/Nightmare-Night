@@ -11,6 +11,8 @@ public class MenuController : MonoBehaviour
 
     [SerializeField] Transform startPoint;
 
+    [SerializeField] GameObject beginningStoryPrompt;
+
     private void Awake()
     {
         this.playerInput.enabled = false;
@@ -36,8 +38,7 @@ public class MenuController : MonoBehaviour
 
         this.playerHealth.GetComponent<CharacterController>().enabled = true;
 
-        this.playerInput.enabled = true;
-        this.playerHealth.enabled = true;
+        this.beginningStoryPrompt.SetActive(true);
 
         this.gameObject.SetActive(false);
     }

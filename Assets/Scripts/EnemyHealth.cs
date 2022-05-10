@@ -86,6 +86,8 @@ public class EnemyHealth : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (this.isDead) { return; }
+
         if (collision.collider.CompareTag("Axe"))
             SubtractHealth(this.currentHitPoints);
     }

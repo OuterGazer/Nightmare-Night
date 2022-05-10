@@ -126,7 +126,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d2d60dcbd817ef4f8fa66d4faa1a197, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   chaseRange: 12
   rotationSpeed: 5
   enemyMaxDisengageTime: 3
@@ -143,7 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHitPoints: 5
-  colliderDeactivationDelay: 2.5
+  colliderDeactivationDelay: 1
   enemyDeathDelay: 10
 --- !u!114 &657711036
 MonoBehaviour:

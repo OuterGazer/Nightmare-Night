@@ -35,6 +35,8 @@ public class Artifact : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (this.isBossDead) { return; }
+
         if (collision.gameObject.CompareTag("Axe"))
             KillBoss(collision.impulse);
     }

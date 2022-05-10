@@ -8,6 +8,8 @@ public class BossRoomLights : MonoBehaviour
     [SerializeField] RoomLights artifactRoomLights;
     [SerializeField] Transform referencePoint;
 
+    [SerializeField] GameObject roomEnemies;
+
     [SerializeField] bool areLightsOn;
 
     private void Awake()
@@ -15,6 +17,7 @@ public class BossRoomLights : MonoBehaviour
         if (GameObject.FindObjectOfType<CheckpointTrigger>().IsCheckpointActivated)
         {
             ManageRoomLightsManually(true);
+            this.roomEnemies.SetActive(true);
         }
     }
 
@@ -30,6 +33,7 @@ public class BossRoomLights : MonoBehaviour
                     if (distToRefPoint > 1.0f)
                     {
                         ManageRoomLightsManually(true);
+                        this.roomEnemies.SetActive(true);
                         this.artifactRoomLights.ManageRoomLightsManually(false);
                     }
                     break;
@@ -37,6 +41,7 @@ public class BossRoomLights : MonoBehaviour
                     if (distToRefPoint < 1.0f)
                     {
                         ManageRoomLightsManually(false);
+                        this.roomEnemies.SetActive(false);
                         this.artifactRoomLights.ManageRoomLightsManually(true);
                     }
                     break;

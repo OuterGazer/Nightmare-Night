@@ -31,6 +31,8 @@ public class Artifact : MonoBehaviour
         this.isBossDead = true;
 
         this.exitDoor.transform.Rotate(Vector3.up, -105.0f);
+
+        GameObject.FindObjectOfType<SoundController>().SwitchSongsBack();
     }
 
     private void OnCollisionEnter(Collision collision)

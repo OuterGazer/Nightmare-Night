@@ -84,5 +84,7 @@ public class SceneLoader : MonoBehaviour
         RenderSettings.reflectionIntensity = 1.0f;
         RenderSettings.reflectionBounces = 5;
         RenderSettings.ambientLight = new Color32(29, 28, 25, 255);
+
+        GameObject.FindObjectOfType<SoundController>().SwitchSongs();
     }
 }

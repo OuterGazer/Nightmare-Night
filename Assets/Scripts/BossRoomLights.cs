@@ -57,5 +57,12 @@ public class BossRoomLights : MonoBehaviour
         }
 
         this.areLightsOn = shouldBeLit;
+
+        if (shouldBeLit)
+            GameObject.FindObjectOfType<SoundController>().SwitchSongs();
+        else
+        {
+            GameObject.FindObjectOfType<SoundController>().SwitchSongsBack();
+        }
     }
 }

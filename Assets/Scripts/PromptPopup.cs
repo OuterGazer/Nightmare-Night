@@ -8,6 +8,7 @@ public class PromptPopup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        this.prompt.gameObject.SetActive(true);
+        if(other.CompareTag("Player"))
+            this.prompt.gameObject.SetActive(true);
     }
 }

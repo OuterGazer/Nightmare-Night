@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PromptController : MonoBehaviour
 {
+    [SerializeField] GameObject UI;
     [SerializeField] GameObject weapons;
     [SerializeField] PlayerInput playerInput;
 
@@ -12,6 +13,7 @@ public class PromptController : MonoBehaviour
     {
         prompt.SetActive(false);
 
+        this.UI.SetActive(true);
         this.weapons.gameObject.SetActive(true);
         this.playerInput.enabled = true;
         Time.timeScale = 1;

@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class Prompt : MonoBehaviour
 {
+    [SerializeField] GameObject UI;
     [SerializeField] GameObject weapons;
     [SerializeField] PlayerInput playerInput;
 
@@ -13,6 +14,7 @@ public class Prompt : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
+        this.UI.SetActive(false);
         this.weapons.SetActive(false);
         this.playerInput.enabled = false;
 

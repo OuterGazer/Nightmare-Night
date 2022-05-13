@@ -9,10 +9,14 @@ public class Prompt : MonoBehaviour
     [SerializeField] GameObject weapons;
     [SerializeField] PlayerInput playerInput;
 
+    [SerializeField] AudioClip openPaper;
+
     private void OnEnable()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+
+        this.gameObject.GetComponent<AudioSource>().Play();
 
         this.UI.SetActive(false);
         this.weapons.SetActive(false);

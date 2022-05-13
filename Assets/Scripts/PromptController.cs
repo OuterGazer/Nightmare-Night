@@ -9,8 +9,12 @@ public class PromptController : MonoBehaviour
     [SerializeField] GameObject weapons;
     [SerializeField] PlayerInput playerInput;
 
+    [SerializeField] AudioClip closePaper;
+
     public void OnClickOk(GameObject prompt)
     {
+        this.gameObject.GetComponent<AudioSource>().PlayOneShot(this.closePaper);
+
         prompt.SetActive(false);
 
         this.UI.SetActive(true);

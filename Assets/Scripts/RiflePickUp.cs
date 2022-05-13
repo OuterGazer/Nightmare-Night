@@ -24,6 +24,8 @@ public class RiflePickUp : MonoBehaviour
         {
             this.historyPromptMel.SetActive(true);
 
+            this.gameObject.GetComponent<AudioSource>().Play();
+
             this.UI.SetActive(false);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;

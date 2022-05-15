@@ -39,6 +39,9 @@ public class Weapon : MonoBehaviour
 
     [Header("Rifle SFX")]
     [SerializeField] AudioClip shootSFX;
+    [SerializeField] AudioClip dryShootSFX;
+    [SerializeField] AudioClip bulletOut;
+    [SerializeField] AudioClip bulletIn;
 
 
     private Rigidbody axeRB;
@@ -89,8 +92,16 @@ public class Weapon : MonoBehaviour
 
     private IEnumerator LoadWeapon()
     {
-        // TODO: replay the loading SFX. This avoids abusing weapon switching to override the loading time between shots
-        yield return new WaitForSeconds(3.5f);
+        if(this.rifleAudioSource.isPlaying)
+            yield return new WaitForSeconds(0.3f);
+
+        this.rifleAudioSource.PlayOneShot(this.bulletOut);
+
+        yield return new WaitForSeconds(1.6f);
+
+        this.rifleAudioSource.PlayOneShot(this.bulletIn);
+
+        yield return new WaitForSeconds(0.6f);
 
         this.isWeaponLoaded = true;
     }
@@ -173,7 +184,13 @@ public class Weapon : MonoBehaviour
         if (!this.gameObject.CompareTag("Axe"))
         {
             if (this.isWeaponLoaded && this.ammoSlot.GetCurrentAmmoAmount(this.ammoType) > 0)
-                this.StartCoroutine(ShootBullet());
+            {
+                ShootBullet();
+                this.rifleAudioSource.PlayOneShot(this.shootSFX);
+            }
+            else
+                this.rifleAudioSource.PlayOneShot(this.dryShootSFX);
+
         }
         else
         {
@@ -194,7 +211,7 @@ public class Weapon : MonoBehaviour
         }        
     }
 
-    private IEnumerator ShootBullet()
+    private void ShootBullet()
     {
         this.isWeaponLoaded = false;
 
@@ -207,10 +224,7 @@ public class Weapon : MonoBehaviour
 
         this.ammoSlot.SubtractAmmo(this.ammoType);
 
-        //TODO: have the yield return depend on the duration of a loading sniper rifle SFX
-        yield return new WaitForSeconds(3.5f);
-
-        this.isWeaponLoaded = true;
+        this.StartCoroutine(LoadWeapon());
     }
     private void EmmitRaycast()
     {

@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class MenuController : MonoBehaviour
 {
+    [SerializeField] GameObject creditsMenu;
+
     [SerializeField] PlayerInput playerInput;
     [SerializeField] PlayerHealth playerHealth;
     [SerializeField] GameObject startCollider;
@@ -45,7 +47,8 @@ public class MenuController : MonoBehaviour
 
     public void OnClickCredits()
     {
-
+        this.creditsMenu.SetActive(true);
+        this.gameObject.SetActive(false);
     }
 
     public void OnClickQuit()

@@ -176,3 +176,5 @@ MonoBehaviour:
   mousePauseSlider: {fileID: 0}
   pauseMenu: {fileID: 0}
   playerInput: {fileID: 0}
+  weapons: {fileID: 0}
+  enableWeapon: 0

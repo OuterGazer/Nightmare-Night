@@ -100,6 +100,13 @@ public class SoundController : MonoBehaviour
         this.player.RotationSpeed = this.mousePauseSlider.value;
     }
 
+    public void OnRetrieveAxeClick()
+    {
+        ResumeGame();
+
+        GameObject.FindObjectOfType<Weapon>().RetrieveAxe(true);
+    }
+
     private void Update()
     {
         ChangeSong();

@@ -292,6 +292,7 @@ MonoBehaviour:
   ammoText: {fileID: 0}
   axeDraw: {fileID: 8300000, guid: 85f81974f30eec34d905133fffb2c475, type: 3}
   rifleDraw: {fileID: 8300000, guid: 7dc58676cff6a8f4ba87cf9b654eef42, type: 3}
+  axeWeapon: {fileID: 988156175643618247}
 --- !u!114 &4832981299469176199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -463,6 +464,10 @@ PrefabInstance:
     - target: {fileID: 932819057146827160, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 932819057146827160, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
+      propertyPath: m_TagString
+      value: Axe
       objectReference: {fileID: 0}
     - target: {fileID: 1698224110291820928, guid: 68cb2237264c7bf419795fb2a4c333de, type: 3}
       propertyPath: player

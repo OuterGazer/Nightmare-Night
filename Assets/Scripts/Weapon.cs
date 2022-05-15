@@ -157,7 +157,7 @@ public class Weapon : MonoBehaviour
             float distToPlayer = (this.player.transform.position - this.axeChild.transform.position).sqrMagnitude;
 
             if (distToPlayer <= this.retrieveDist * this.retrieveDist)
-                RetrieveAxe();
+                RetrieveAxe(false);
         }
 
         // If player has axe, check every frame to reposition it correctly, else start the counter to be able to retrieve it (player has thrown it)
@@ -278,8 +278,17 @@ public class Weapon : MonoBehaviour
         GameObject.Instantiate<GameObject>(this.bulletImpactSparks, hit.point, Quaternion.LookRotation(hit.normal));
     }
 
-    private void RetrieveAxe()
+    public void RetrieveAxe(bool isEmergency)
     {
+        if (isEmergency)
+        {
+            this.axeRB.velocity = Vector3.zero;
+            this.axeRB.isKinematic = true;
+            this.axeCol.isTrigger = true;
+            this.hasBluntSFXPlayed = false;
+            this.hasFleshSFXPlayed = false;
+        }        
+
         this.axeChild.transform.SetParent(this.axeParent);
 
         this.axeChild.transform.localPosition = Vector3.zero;

@@ -15,6 +15,7 @@ TagManager:
   - RobAxe
   - Wood
   - Stone
+  - AxeMain
   layers:
   - Default
   - TransparentFX

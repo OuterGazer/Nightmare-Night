@@ -10,6 +10,10 @@ public class EnemyMover : MonoBehaviour
     [SerializeField] float rotationSpeed = default;
     [SerializeField] float enemyMaxDisengageTime = default;
     private float enemyDisengageTime = 0f;
+    [SerializeField] AudioClip playerSpottedSFX;
+    [SerializeField] AudioClip attackSFX;
+    [SerializeField] AudioClip hitSFX;
+    [SerializeField] AudioClip deathSFX;
 
 
     private Animator enemyAnim;
@@ -17,6 +21,7 @@ public class EnemyMover : MonoBehaviour
     private float distanceToTargetSqr = Mathf.Infinity;
     private Vector3 startPos;
     private LayerMask defaultMask;
+    private AudioSource audioSource;
 
     private bool isPlayerVisible = false;
     private bool isPlayerAlive = true;
@@ -31,6 +36,7 @@ public class EnemyMover : MonoBehaviour
     {
         this.isProvoked = isProvoked;
     }
+    private bool hasZombieGrowled = false;
 
     private void Awake()
     {
@@ -40,6 +46,8 @@ public class EnemyMover : MonoBehaviour
         this.navMeshAgent = this.gameObject.GetComponent<NavMeshAgent>();
 
         this.defaultMask = LayerMask.GetMask("Default");
+
+        this.audioSource = this.gameObject.GetComponent<AudioSource>();
     }
 
     // Start is called before the first frame update
@@ -98,6 +106,8 @@ public class EnemyMover : MonoBehaviour
 
         this.isMoving = false;
         this.enemyAnim.SetTrigger("idle");
+
+        this.hasZombieGrowled = false;
     }
 
     private void ReturnToStartPos()
@@ -125,6 +135,12 @@ public class EnemyMover : MonoBehaviour
             this.enemyAnim.SetBool("isAttacking", false);
 
             this.navMeshAgent.SetDestination(this.target.position);
+
+            if (!this.hasZombieGrowled)
+            {
+                this.audioSource.PlayOneShot(this.playerSpottedSFX);
+                this.hasZombieGrowled = true;
+            }            
         }
         else
         {
@@ -132,18 +148,27 @@ public class EnemyMover : MonoBehaviour
 
             this.isMoving = false;
 
-            this.enemyAnim.SetBool("isAttacking", true);
+            if (!this.enemyAnim.GetBool("isAttacking"))
+            {
+                this.enemyAnim.SetBool("isAttacking", true);
+
+                this.audioSource.PlayOneShot(this.attackSFX);
+            }            
         }
     }
 
     public void ActivateDyingAnimation()
     {
         this.enemyAnim.SetTrigger("die");
+
+        this.audioSource.PlayOneShot(this.deathSFX);
     }
 
     public void ActivateHitAnimation()
     {
         this.enemyAnim.SetTrigger("hit");
+
+        this.audioSource.PlayOneShot(this.hitSFX);
     }
 
     public void SetSpeed(float inSpeed)

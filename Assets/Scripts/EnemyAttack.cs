@@ -14,12 +14,6 @@ public class EnemyAttack : MonoBehaviour
         this.target = GameObject.FindObjectOfType<PlayerHealth>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     public void AttackHitEvent()
     {
         if (this.target == null) { return; }

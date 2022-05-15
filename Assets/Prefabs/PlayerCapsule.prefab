@@ -69,7 +69,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55919ac34a26952479f3fc91f777b2fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 5
+  MoveSpeed: 3.5
   SprintSpeed: 7
   RotationSpeed: 0.01
   SpeedChangeRate: 10
@@ -86,16 +86,16 @@ MonoBehaviour:
   CinemachineCameraTarget: {fileID: 5823107623849137227}
   TopClamp: 65
   BottomClamp: -80
-  jumpAudioSource: {fileID: 0}
-  dirtWalk: {fileID: 0}
-  dirtRun: {fileID: 0}
-  concWalk: {fileID: 0}
-  concRun: {fileID: 0}
-  woodWalk: {fileID: 0}
-  woodRun: {fileID: 0}
-  dirtJump: {fileID: 0}
-  concJump: {fileID: 0}
-  woodJump: {fileID: 0}
+  jumpAudioSource: {fileID: 8302525581572534476}
+  dirtWalk: {fileID: 8300000, guid: d7c6d5a5227e64d47a69a6d67ef0d058, type: 3}
+  dirtRun: {fileID: 8300000, guid: 2debf70854e0df545889dd04aabd47a4, type: 3}
+  concWalk: {fileID: 8300000, guid: f15251990bc8dc34a856a0dde9aa29a9, type: 3}
+  concRun: {fileID: 8300000, guid: 5b1f5d629eeab6548aa2ef4b633a2779, type: 3}
+  woodWalk: {fileID: 8300000, guid: e95c31b6cb3fdd94ca7dd38ff31faee8, type: 3}
+  woodRun: {fileID: 8300000, guid: 2a5f8bf4ec72bea4bba3e1daede89fcd, type: 3}
+  dirtJump: {fileID: 8300000, guid: abff57520a0cd5540b396c8d9bc1f041, type: 3}
+  concJump: {fileID: 8300000, guid: 3c446e6b2548a7e4dad5eca41b7abe03, type: 3}
+  woodJump: {fileID: 8300000, guid: 2307ef6045ada7a45bbb638a5e717707, type: 3}
 --- !u!114 &8275823797218281440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,7 +259,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.25
+  m_Volume: 0.15
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -370,7 +370,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2555190682011105542}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.513, y: 0.72, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1545330682281080746}
@@ -437,7 +437,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.25
+  m_Volume: 0.15
   m_Pitch: 1
   Loop: 0
   Mute: 0

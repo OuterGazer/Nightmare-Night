@@ -104,7 +104,10 @@ public class SoundController : MonoBehaviour
     {
         ResumeGame();
 
-        GameObject.FindObjectOfType<Weapon>().RetrieveAxe(true);
+        Weapon axe = GameObject.FindObjectOfType<Weapon>();
+        
+        if(axe.CompareTag("Axe"))
+            axe.RetrieveAxe(true);
     }
 
     private void Update()

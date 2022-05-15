@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
@@ -23,12 +24,14 @@ public class MenuController : MonoBehaviour
 
     private void Awake()
     {
+        if(SceneManager.GetActiveScene().buildIndex  == 1) { return; }
         this.playerInput.enabled = false;
         this.playerHealth.enabled = false;
     }
 
     private void Start()
     {
+        if (SceneManager.GetActiveScene().buildIndex == 1) { return; }
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }

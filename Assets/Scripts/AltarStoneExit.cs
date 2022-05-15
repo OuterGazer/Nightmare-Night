@@ -9,6 +9,10 @@ public class AltarStoneExit : MonoBehaviour
     public void OnZombieKilled()
     {
         if(this.isZombie1Killed && this.isZombie2Killed)
+        {
             GameObject.FindObjectOfType<LevelTransition>().EndLevelTrigger.Invoke();
+
+            this.gameObject.GetComponent<AudioSource>().Play();
+        }            
     }
 }

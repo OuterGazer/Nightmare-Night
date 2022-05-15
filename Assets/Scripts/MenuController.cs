@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class MenuController : MonoBehaviour
 {
     [SerializeField] GameObject creditsMenu;
+    [SerializeField] GameObject optionsMenu;
 
     [SerializeField] PlayerInput playerInput;
     [SerializeField] PlayerHealth playerHealth;
@@ -48,6 +49,12 @@ public class MenuController : MonoBehaviour
     public void OnClickCredits()
     {
         this.creditsMenu.SetActive(true);
+        this.gameObject.SetActive(false);
+    }
+
+    public void OnClickOptions()
+    {
+        this.optionsMenu.SetActive(true);
         this.gameObject.SetActive(false);
     }
 

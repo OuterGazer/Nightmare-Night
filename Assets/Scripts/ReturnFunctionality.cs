@@ -11,4 +11,10 @@ public class ReturnFunctionality : MonoBehaviour
         this.menuToReturn.SetActive(true);
         this.gameObject.SetActive(false);
     }
+
+    public void OnOptionsClickReturn()
+    {
+        this.menuToReturn.SetActive(true);
+        this.gameObject.SetActive(false);
+    }
 }

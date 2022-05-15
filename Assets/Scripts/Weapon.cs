@@ -36,12 +36,16 @@ public class Weapon : MonoBehaviour
     [SerializeField] AudioClip throwingSFX;
     [SerializeField] AudioClip axeBluntHit;
     [SerializeField] AudioClip axeFleshHit;
+    [SerializeField] AudioClip axeDraw;
 
     [Header("Rifle SFX")]
     [SerializeField] AudioClip shootSFX;
     [SerializeField] AudioClip dryShootSFX;
     [SerializeField] AudioClip bulletOut;
     [SerializeField] AudioClip bulletIn;
+    [SerializeField] AudioClip bluntHit;
+    [SerializeField] AudioClip fleshHit;
+    [SerializeField] AudioClip metalHit;
 
 
     private Rigidbody axeRB;
@@ -240,12 +244,18 @@ public class Weapon : MonoBehaviour
                 EnemyHealth enemyHealth = hit.collider.GetComponent<EnemyHealth>();
                 if (enemyHealth != null)
                 {
+                    this.rifleAudioSource.PlayOneShot(this.fleshHit);
                     enemyHealth.SubtractHealth(this.damage);
                     hit.collider.GetComponent<EnemyMover>().SetIsProvoked(true);
                 }
             }
             else if (hit.collider.CompareTag("Artifact"))
+            {
+                this.rifleAudioSource.PlayOneShot(this.metalHit);
                 hit.collider.GetComponent<Artifact>().KillBoss(hit.point);
+            }                
+            else
+                this.rifleAudioSource.PlayOneShot(this.bluntHit);
         }
     }
 
@@ -279,6 +289,8 @@ public class Weapon : MonoBehaviour
         this.playerHasAxe = true;
         this.canRetrieveAxe = false;
         this.axeLastPos = Vector3.positiveInfinity;
+
+        this.axeAudioSource.PlayOneShot(this.axeDraw);
     }
 
     public void OnAxeCollision(string collisionTag)

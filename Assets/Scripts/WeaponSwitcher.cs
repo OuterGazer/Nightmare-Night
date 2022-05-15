@@ -26,6 +26,14 @@ public class WeaponSwitcher : MonoBehaviour
     [SerializeField] TextMeshProUGUI weaponText;
     [SerializeField] TextMeshProUGUI ammoText;
 
+    [Header("SFX")]
+    [SerializeField] AudioClip axeDraw;
+    [SerializeField] AudioClip rifleDraw;
+
+
+    private AudioSource audioSource;
+
+
     private bool hasAxe = false;
     public bool HasAxe
     {
@@ -50,6 +58,8 @@ public class WeaponSwitcher : MonoBehaviour
             this.hasRifle = true;
             this.currentWeapon = 1;
         }
+
+        this.audioSource = this.gameObject.GetComponent<AudioSource>();
     }
 
     private void OnDestroy()
@@ -187,12 +197,14 @@ public class WeaponSwitcher : MonoBehaviour
             case 0:
                 this.weaponText.text = "Throwing Axe";
                 this.ammoText.text = "";
+                this.audioSource.PlayOneShot(this.axeDraw);
                 break;
 
             case 1:
                 this.weaponText.text = "Hunting Rifle";
                 string curAmmo = GameObject.FindObjectOfType<Ammo>().GetCurrentAmmoAmount(AmmoType.Bullets).ToString();
                 this.ammoText.text = curAmmo + "/5";
+                this.audioSource.PlayOneShot(this.rifleDraw);
                 break;
         }
     }

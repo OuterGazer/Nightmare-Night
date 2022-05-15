@@ -22,6 +22,7 @@ public class SoundController : MonoBehaviour
 
     [SerializeField] GameObject pauseMenu;
     [SerializeField] PlayerInput playerInput;
+    [SerializeField] GameObject weapons;
 
 
     private AudioClip song1;
@@ -30,6 +31,7 @@ public class SoundController : MonoBehaviour
 
     private bool shouldSongsbeSwitched = false;
     private bool shouldSongsbeSwitchedBack = false;
+    public bool enableWeapon = false;
 
     private void Awake()
     {
@@ -110,6 +112,7 @@ public class SoundController : MonoBehaviour
             Cursor.visible = true;
 
             this.playerInput.enabled = false;
+            this.weapons.SetActive(false);
 
             Time.timeScale = 0;
         }
@@ -127,6 +130,9 @@ public class SoundController : MonoBehaviour
         Cursor.visible = false;
 
         this.playerInput.enabled = true;
+
+        if(enableWeapon)
+            this.weapons.SetActive(true);
 
         Time.timeScale = 1;
     }

@@ -56,6 +56,7 @@ public class AxePickUp : MonoBehaviour
         
         this.UI.SetActive(true);
         this.weapons.gameObject.SetActive(true);
+        GameObject.FindObjectOfType<SoundController>().enableWeapon = true;
         GameObject.FindObjectOfType<PlayerInput>().enabled = true;
         Time.timeScale = 1;
 

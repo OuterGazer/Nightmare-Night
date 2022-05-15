@@ -300,7 +300,7 @@ public class Weapon : MonoBehaviour
         if (this.axeAudioSource.isPlaying && (!this.hasBluntSFXPlayed && !this.hasFleshSFXPlayed))
             this.axeAudioSource.Stop();
 
-        if(collisionTag != "Enemy")
+        if(collisionTag != "Enemy" && collisionTag != "Player")
         {
             if (!this.hasBluntSFXPlayed)
             {

@@ -32,6 +32,14 @@ public class Weapon : MonoBehaviour
     [SerializeField] float maxAxeSpinningSpeed = default;
     [SerializeField] GameObject pickupSparks;
 
+    [Header("Axe SFX")]
+    [SerializeField] AudioClip throwingSFX;
+    [SerializeField] AudioClip axeBluntHit;
+    [SerializeField] AudioClip axeFleshHit;
+
+    [Header("Rifle SFX")]
+    [SerializeField] AudioClip shootSFX;
+
 
     private Rigidbody axeRB;
     private MeshCollider axeCol;
@@ -39,11 +47,15 @@ public class Weapon : MonoBehaviour
     private Vector3 curGravity;
     private Vector3 axeLastPos = Vector3.positiveInfinity;
     private LayerMask enemyMask;
+    private AudioSource rifleAudioSource;
+    private AudioSource axeAudioSource;
 
 
     private bool playerHasAxe = true;
     private bool isWeaponLoaded = true;
     private bool canRetrieveAxe = false;
+    private bool hasBluntSFXPlayed = false;
+    private bool hasFleshSFXPlayed = false;
 
     private void Awake()
     {
@@ -65,6 +77,8 @@ public class Weapon : MonoBehaviour
 
         this.curGravity = Physics.gravity;
         this.enemyMask = LayerMask.GetMask("Enemy");
+        this.rifleAudioSource = this.gameObject.GetComponent<AudioSource>();
+        this.axeAudioSource = this.gameObject.GetComponentInChildren<AudioSource>();
     }
 
     private void OnEnable()
@@ -163,7 +177,9 @@ public class Weapon : MonoBehaviour
         }
         else
         {
-            if (!this.playerHasAxe) { return; } 
+            if (!this.playerHasAxe) { return; }
+
+            this.axeAudioSource.PlayOneShot(this.throwingSFX);
 
             this.axeChild.transform.SetParent(null);
 
@@ -251,9 +267,57 @@ public class Weapon : MonoBehaviour
         this.axeLastPos = Vector3.positiveInfinity;
     }
 
-    public void OnAxeCollision()
+    public void OnAxeCollision(string collisionTag)
     {
         Physics.gravity = new Vector3(0, this.axeGravityUponLaunch);
+
+        if (this.axeAudioSource.isPlaying && (!this.hasBluntSFXPlayed && !this.hasFleshSFXPlayed))
+            this.axeAudioSource.Stop();
+
+        if(collisionTag != "Enemy")
+        {
+            if (!this.hasBluntSFXPlayed)
+            {
+                this.axeAudioSource.PlayOneShot(this.axeBluntHit);
+                this.StartCoroutine(ReenableSFX("blunt"));
+            }                
+        }
+        else
+        {
+            if (!this.hasFleshSFXPlayed)
+            {
+                this.axeAudioSource.PlayOneShot(this.axeFleshHit);
+                this.StartCoroutine(ReenableSFX("flesh"));
+            }
+                
+        }            
+    }
+
+    private IEnumerator ReenableSFX(string SFX)
+    {
+        switch (SFX)
+        {
+            case "blunt":
+                this.hasBluntSFXPlayed = true;
+                break;
+
+            case "flesh":
+                this.hasFleshSFXPlayed = true;
+                break;
+        }
+
+        yield return new WaitForSeconds(1.5f);
+
+        switch (SFX)
+        {
+            case "blunt":
+                this.hasBluntSFXPlayed = false;
+                break;
+
+            case "flesh":
+                this.hasFleshSFXPlayed = false;
+                break;
+        }
     }
 
     private void OnDrawGizmosSelected()

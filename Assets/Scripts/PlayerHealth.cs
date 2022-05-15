@@ -15,8 +15,22 @@ public class PlayerHealth : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI healthText;
 
+    [Header("SFX")]
+    [SerializeField] AudioClip hurtSFX;
+    [SerializeField] AudioClip deathSFX;
+
+
+    private AudioSource audioSource;
+
+
     private bool isAlive = true;
     public bool IsAlive => this.isAlive;
+
+
+    private void Awake()
+    {
+        this.audioSource = this.gameObject.GetComponentInChildren<AudioSource>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -68,6 +82,9 @@ public class PlayerHealth : MonoBehaviour
                 ProcessDeath();
         }
 
+        if(this.isAlive)
+            this.audioSource.PlayOneShot(this.hurtSFX);
+
         UpdateHealthUI(this.curHitPoints);
     }
 
@@ -78,6 +95,8 @@ public class PlayerHealth : MonoBehaviour
         // Prevent player from moving and shooting
         this.gameObject.GetComponent<PlayerInput>().enabled = false;
         this.weapons.SetActive(false);
+
+        this.audioSource.PlayOneShot(this.deathSFX);
 
         // Make enemies disengage from attacking the player and have them return to their starting positions
         Collider[] enemies = Physics.OverlapSphere(this.gameObject.transform.position, 5.0f, LayerMask.GetMask("Enemy"));

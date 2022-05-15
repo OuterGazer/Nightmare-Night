@@ -140,9 +140,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ece77ddd997860549a9abfbae980c76e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseGame:
+    m_Name: Pause Game
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: 725394e0-8927-4540-b2b0-c39624ef4335
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 7f9eac97-6857-4c59-9b33-7d8816f20b5c
+      m_Path: <Keyboard>/p
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Pause Game
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 21ddf021-602a-46d1-a66a-0b63f6d98776
+      m_Path: <Keyboard>/escape
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Pause Game
+      m_Flags: 0
+    m_Flags: 1
   song2: {fileID: 8300000, guid: 4e3db7e456c4f954a8f5a68a790745de, type: 3}
   songSwitchDelayFactor: 3
   musicSlider: {fileID: 0}
   SFXSlider: {fileID: 0}
   testSFX: {fileID: 8300000, guid: c4377b9996faf2d4e8deda09790aab3c, type: 3}
   mouseSlider: {fileID: 0}
+  musicPauseSlider: {fileID: 0}
+  SFXPauseSlider: {fileID: 0}
+  mousePauseSlider: {fileID: 0}
+  pauseMenu: {fileID: 0}
+  playerInput: {fileID: 0}

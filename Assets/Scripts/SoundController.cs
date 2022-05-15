@@ -3,9 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class SoundController : MonoBehaviour
 {
+    [SerializeField] InputAction pauseGame;
+
     [SerializeField] AudioClip song2;
     [SerializeField] float songSwitchDelayFactor;
 
@@ -13,6 +16,13 @@ public class SoundController : MonoBehaviour
     [SerializeField] Slider SFXSlider;
     [SerializeField] AudioClip testSFX;
     [SerializeField] Slider mouseSlider;
+    [SerializeField] Slider musicPauseSlider;
+    [SerializeField] Slider SFXPauseSlider;
+    [SerializeField] Slider mousePauseSlider;
+
+    [SerializeField] GameObject pauseMenu;
+    [SerializeField] PlayerInput playerInput;
+
 
     private AudioClip song1;
     private AudioSource audioSource;
@@ -23,6 +33,8 @@ public class SoundController : MonoBehaviour
 
     private void Awake()
     {
+        this.pauseGame.Enable();
+
         this.audioSource = this.gameObject.GetComponent<AudioSource>();
         this.player = GameObject.FindObjectOfType<FirstPersonController>();
 
@@ -30,6 +42,11 @@ public class SoundController : MonoBehaviour
 
         this.audioSource.ignoreListenerPause = true;
         this.audioSource.ignoreListenerVolume = true;
+    }
+
+    private void OnDestroy()
+    {
+        this.pauseGame.Disable();
     }
 
     private void Start()
@@ -65,7 +82,56 @@ public class SoundController : MonoBehaviour
         this.player.RotationSpeed = this.mouseSlider.value;
     }
 
+    public void SetMusicVolumeFromPAuse()
+    {
+        this.audioSource.volume = this.musicPauseSlider.value;
+    }
+
+    public void SetSFXVolumeFomPause()
+    {
+        AudioListener.volume = this.SFXPauseSlider.value;
+        AudioSource.PlayClipAtPoint(this.testSFX, Camera.main.transform.position);
+    }
+
+    public void SetSensitivityFromPause()
+    {
+        this.player.RotationSpeed = this.mousePauseSlider.value;
+    }
+
     private void Update()
+    {
+        ChangeSong();
+
+        if (this.pauseGame.triggered && !this.pauseMenu.activeSelf)
+        {
+            this.pauseMenu.SetActive(true);
+
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+
+            this.playerInput.enabled = false;
+
+            Time.timeScale = 0;
+        }
+        else if(this.pauseGame.triggered && this.pauseMenu.activeSelf)
+        {
+            ResumeGame();
+        }
+    }
+
+    public void ResumeGame()
+    {
+        this.pauseMenu.SetActive(false);
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        this.playerInput.enabled = true;
+
+        Time.timeScale = 1;
+    }
+
+    private void ChangeSong()
     {
         if (this.shouldSongsbeSwitched)
         {
@@ -119,7 +185,5 @@ public class SoundController : MonoBehaviour
                 this.shouldSongsbeSwitchedBack = false;
             }
         }
-        
-            
     }
 }

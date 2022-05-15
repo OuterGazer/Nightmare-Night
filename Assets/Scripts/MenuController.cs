@@ -57,9 +57,9 @@ public class MenuController : MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
-    public void OnClickOptions()
+    public void OnClickOptions(GameObject menuToActivate)
     {
-        this.optionsMenu.SetActive(true);
+        menuToActivate.SetActive(true);
 
         this.musicSlider.value = PlayerPrefs.GetFloat("Volume", 0.50f);
         this.SFXSlider.value = PlayerPrefs.GetFloat("SFX", 0.25f);

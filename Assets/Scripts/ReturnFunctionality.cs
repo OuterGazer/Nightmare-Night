@@ -17,9 +17,9 @@ public class ReturnFunctionality : MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
-    public void OnOptionsClickReturn()
+    public void OnOptionsClickReturn(GameObject menuToReturn)
     {
-        this.menuToReturn.SetActive(true);
+        menuToReturn.SetActive(true);
 
         PlayerPrefs.SetFloat("Volume", this.musicSlider.value);
         PlayerPrefs.SetFloat("SFX", this.SFXSlider.value);

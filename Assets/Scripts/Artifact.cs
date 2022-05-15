@@ -9,6 +9,7 @@ public class Artifact : MonoBehaviour
     [SerializeField] EnemyHealth[] bossRoomEnemies;
 
     [SerializeField] GameObject exitDoor;
+    [SerializeField] AudioClip doorScreakSFX;
 
     private bool isBossDead = false;
 
@@ -31,6 +32,7 @@ public class Artifact : MonoBehaviour
         this.isBossDead = true;
 
         this.exitDoor.transform.Rotate(Vector3.up, -105.0f);
+        AudioSource.PlayClipAtPoint(this.doorScreakSFX, this.exitDoor.transform.position);
 
         GameObject.FindObjectOfType<SoundController>().SwitchSongsBack();
     }

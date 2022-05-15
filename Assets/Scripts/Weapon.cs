@@ -59,6 +59,7 @@ public class Weapon : MonoBehaviour
 
 
     private bool playerHasAxe = true;
+    public bool PlayerHasAxe => this.playerHasAxe;
     private bool isWeaponLoaded = true;
     private bool canRetrieveAxe = false;
     private bool hasBluntSFXPlayed = false;

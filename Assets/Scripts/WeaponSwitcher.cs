@@ -29,6 +29,7 @@ public class WeaponSwitcher : MonoBehaviour
     [Header("SFX")]
     [SerializeField] AudioClip axeDraw;
     [SerializeField] AudioClip rifleDraw;
+    [SerializeField] Weapon axeWeapon;
 
 
     private AudioSource audioSource;
@@ -197,7 +198,8 @@ public class WeaponSwitcher : MonoBehaviour
             case 0:
                 this.weaponText.text = "Throwing Axe";
                 this.ammoText.text = "";
-                this.audioSource.PlayOneShot(this.axeDraw);
+                if(this.axeWeapon.PlayerHasAxe)
+                    this.audioSource.PlayOneShot(this.axeDraw);
                 break;
 
             case 1:

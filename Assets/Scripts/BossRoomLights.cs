@@ -12,10 +12,15 @@ public class BossRoomLights : MonoBehaviour
 
     [SerializeField] bool areLightsOn;
 
+    [SerializeField] AudioClip lightsOn;
+    private AudioSource audioSource;
+
     private void Awake()
     {
+        this.audioSource = this.gameObject.GetComponent<AudioSource>();
+
         if (GameObject.FindObjectOfType<CheckpointTrigger>().IsCheckpointActivated)
-        {
+        {            
             ManageRoomLightsManually(true);
             this.roomEnemies.SetActive(true);
         }
@@ -59,7 +64,15 @@ public class BossRoomLights : MonoBehaviour
         this.areLightsOn = shouldBeLit;
 
         if (shouldBeLit)
+        {
             GameObject.FindObjectOfType<SoundController>().SwitchSongs();
+
+            if (this.audioSource.isPlaying)
+                this.audioSource.Stop();
+
+            this.audioSource.PlayOneShot(this.lightsOn);
+        }
+            
         else
         {
             GameObject.FindObjectOfType<SoundController>().SwitchSongsBack();

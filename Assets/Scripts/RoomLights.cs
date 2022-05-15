@@ -6,9 +6,11 @@ public class RoomLights : MonoBehaviour
 {
     [SerializeField] Transform[] lights;
     [SerializeField] Transform referencePoint;
+    [SerializeField] AudioClip lightsOn;
 
 
     private LightingController lightingController;
+    private AudioSource audioSource;
 
 
     [SerializeField] private bool areLightsOn;
@@ -18,6 +20,7 @@ public class RoomLights : MonoBehaviour
     private void Awake()
     {
         this.lightingController = GameObject.FindObjectOfType<LightingController>();
+        this.audioSource = this.gameObject.GetComponent<AudioSource>();
     }
 
     private void OnTriggerExit(Collider other)
@@ -49,6 +52,12 @@ public class RoomLights : MonoBehaviour
     public void TurnLightsOn()
     {
         this.lightingController.SendMessage("TurnOnTheLights", this.lights);
+
+        if (this.audioSource.isPlaying)
+            this.audioSource.Stop();
+
+        this.audioSource.PlayOneShot(this.lightsOn);
+
         this.areLightsOn = true;
     }
 
@@ -60,5 +69,13 @@ public class RoomLights : MonoBehaviour
         }
 
         this.areLightsOn = shouldBeLit;
+
+        if (shouldBeLit)
+        {
+            if (this.audioSource.isPlaying)
+                this.audioSource.Stop();
+
+            this.audioSource.PlayOneShot(this.lightsOn);
+        }
     }
 }

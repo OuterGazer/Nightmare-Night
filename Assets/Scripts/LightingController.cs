@@ -6,6 +6,14 @@ public class LightingController : MonoBehaviour
 {
     [SerializeField] Transform[] libraryLights;
 
+    [SerializeField] AudioClip lightsOn;
+    private AudioSource audioSource;
+
+    private void Awake()
+    {
+        this.audioSource = this.gameObject.GetComponent<AudioSource>();
+    }
+
     public void TurnOffTheLights(Transform[] inLights)
     {
         for (int i = 0; i < inLights.Length; i++)
@@ -31,6 +39,14 @@ public class LightingController : MonoBehaviour
         for (int i = 0; i < this.libraryLights.Length; i++)
         {
             libraryLights[i].gameObject.SetActive(shouldBeLit);
+        }
+
+        if (shouldBeLit)
+        {
+            if (this.audioSource.isPlaying)
+                this.audioSource.Stop();
+
+            this.audioSource.PlayOneShot(this.lightsOn);
         }
     }
 }

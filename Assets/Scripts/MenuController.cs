@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
 public class MenuController : MonoBehaviour
@@ -15,6 +16,10 @@ public class MenuController : MonoBehaviour
     [SerializeField] Transform startPoint;
 
     [SerializeField] GameObject beginningStoryPrompt;
+
+    [SerializeField] Slider musicSlider;
+    [SerializeField] Slider SFXSlider;
+    [SerializeField] Slider mouseSlider;
 
     private void Awake()
     {
@@ -55,6 +60,11 @@ public class MenuController : MonoBehaviour
     public void OnClickOptions()
     {
         this.optionsMenu.SetActive(true);
+
+        this.musicSlider.value = PlayerPrefs.GetFloat("Volume", 0.50f);
+        this.SFXSlider.value = PlayerPrefs.GetFloat("SFX", 0.25f);
+        this.mouseSlider.value = PlayerPrefs.GetFloat("Sensitivity", 0.01f);
+
         this.gameObject.SetActive(false);
     }
 

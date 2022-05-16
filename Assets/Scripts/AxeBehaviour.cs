@@ -8,6 +8,6 @@ public class AxeBehaviour : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        this.axe.OnAxeCollision(collision.gameObject.tag);
+        this.axe.OnAxeCollision(collision.gameObject.tag, collision);
     }
 }

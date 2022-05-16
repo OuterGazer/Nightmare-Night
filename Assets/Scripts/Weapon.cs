@@ -15,6 +15,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] float range;
     [SerializeField] ParticleSystem muzzleFlash;
     [SerializeField] GameObject bulletImpactSparks;
+    [SerializeField] GameObject fleshImpactVFX;
     private Ammo ammoSlot;
     [SerializeField] AmmoType ammoType;
     [SerializeField] float shootSoundRadius = default;
@@ -238,7 +239,10 @@ public class Weapon : MonoBehaviour
 
         if (isHit)
         {
-            PlayHitParticle(hit);
+            if(!hit.collider.CompareTag("Enemy"))
+                PlayHitParticle(hit, this.bulletImpactSparks);
+            else
+                PlayHitParticle(hit, this.fleshImpactVFX);
 
             if (hit.collider.CompareTag("Enemy"))
             {
@@ -273,9 +277,9 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    private void PlayHitParticle(RaycastHit hit)
+    private void PlayHitParticle(RaycastHit hit, GameObject VFX)
     {
-        GameObject.Instantiate<GameObject>(this.bulletImpactSparks, hit.point, Quaternion.LookRotation(hit.normal));
+        GameObject.Instantiate<GameObject>(VFX, hit.point, Quaternion.LookRotation(hit.normal));
     }
 
     public void RetrieveAxe(bool isEmergency)
@@ -303,7 +307,7 @@ public class Weapon : MonoBehaviour
         this.axeAudioSource.PlayOneShot(this.axeDraw);
     }
 
-    public void OnAxeCollision(string collisionTag)
+    public void OnAxeCollision(string collisionTag, Collision collision)
     {
         Physics.gravity = new Vector3(0, this.axeGravityUponLaunch);
 
@@ -323,6 +327,7 @@ public class Weapon : MonoBehaviour
             if (!this.hasFleshSFXPlayed)
             {
                 this.axeAudioSource.PlayOneShot(this.axeFleshHit);
+                GameObject.Instantiate<GameObject>(this.fleshImpactVFX, collision.GetContact(0).point, Quaternion.LookRotation(collision.GetContact(0).normal));
                 this.StartCoroutine(ReenableSFX("flesh"));
             }
                 

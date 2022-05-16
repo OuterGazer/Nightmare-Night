@@ -76,7 +76,7 @@ public class SceneLoader : MonoBehaviour
 
         this.level2.SetActive(true);
 
-        Lightmapping.lightingSettings = this.lightingSettings;
+        //Lightmapping.lightingSettings = this.lightingSettings;
 
         RenderSettings.fog = false;
         RenderSettings.skybox = null;
